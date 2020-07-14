@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingTop="90dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete restaurant"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:textColor="@color/yellowApp"
+        android:fontFamily="@font/restaurant_font"
+
+
+        />
+
+    <LinearLayout
+        android:id="@+id/lnKhungDangNhap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="120dp">
+
+
+        <EditText
+            android:id="@+id/edtEmailDel_res"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_margin="@dimen/size15dp"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="@dimen/size10dp"
+            android:hint="Email restaurant to delete"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorGray"
+            android:textSize="25sp" />
+
+
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp">
+
+            <Button
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/colorBlack"
+                android:id="@+id/btnDel_res"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/elipse_button_pink"
+                android:text="Delete"
+                android:textAllCaps="false"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+

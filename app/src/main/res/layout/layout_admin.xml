@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingTop="0dp"
+    android:paddingLeft="16dp"
+    android:background="@color/colorBlue"
+
+    tools:context=".WelcomeActivity">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin"
+        android:layout_centerHorizontal="true"
+        android:textSize="40sp"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="@font/restaurant_font"
+        android:layout_marginTop="45dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <Button
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:textColor="@color/colorWhite"
+            android:id="@+id/add_res_admin"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="@drawable/elipse_button_yellow"
+            android:text="Add restaurant"
+            android:textSize="20sp"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_gravity="center"
+            android:textColor="@color/colorWhite"
+            android:id="@+id/del_res_admin"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/elipse_button_yellow"
+            android:text="Delete restaurant"
+            android:textSize="20sp"
+            android:textAllCaps="false"/>
+
+
+
+    </LinearLayout>
+    <ImageView
+        android:tint="@color/colorWhite"
+        android:id="@+id/btnLogOutAdmin"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/off"
+        android:layout_marginTop="48dp"
+        android:layout_marginRight="@dimen/size15dp"/>
+    <ImageView
+        android:tint="@color/colorWhite"
+        android:id="@+id/btnChangePassAdmin"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/key"
+        android:layout_marginTop="110dp"
+        android:layout_marginRight="15dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/logo_foodcourt" />
+
+
+</RelativeLayout>
