@@ -33,7 +33,7 @@
 
 
         <EditText
-            android:id="@+id/edtEmailDel_res"
+            android:id="@+id/edtEmailDel_restaurant"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_margin="@dimen/size15dp"
@@ -42,7 +42,7 @@
             android:hint="Email restaurant to delete"
             android:inputType="textEmailAddress"
             android:singleLine="true"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBlack"
             android:textColorHint="@color/colorGray"
             android:textSize="25sp" />
 
@@ -57,10 +57,9 @@
             android:layout_marginLeft="60dp">
 
             <Button
-                android:gravity="center"
+                android:id="@+id/btnDel_restaurant"
                 android:layout_gravity="center"
                 android:textColor="@color/colorBlack"
-                android:id="@+id/btnDel_res"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="5dp"
                 android:layout_height="wrap_content"

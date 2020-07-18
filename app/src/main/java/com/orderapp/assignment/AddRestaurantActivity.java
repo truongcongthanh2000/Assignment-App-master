@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,8 +55,9 @@ public class AddRestaurantActivity extends AppCompatActivity {
         String Pass = pass.getText().toString().trim();
         final String Name = name.getText().toString().trim();
         String Phone = phone.getText().toString().trim();
+        String Address = address.getText().toString().trim();
 
-        final User restaurant  = new User(Email,Pass,Name,Phone,"staffs");
+        final User restaurant  = new User(Email,Pass,Name,Phone,"staff");
 
         if (Email.isEmpty() || Pass.isEmpty() || Name.isEmpty() || Phone.isEmpty()) {
             waiting.dismiss();
@@ -78,13 +80,16 @@ public class AddRestaurantActivity extends AppCompatActivity {
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Log.d("AddRestaurantActivity", "User Profile Updated");
+                                        }
                                     }
                                 });
                         //push data to realtime database
                         String userID   =   user.getUid();
                         mData.child("users").child(userID).setValue(restaurant);
                         //return Admin
-                        startActivity(new Intent(AddRestaurantActivity.this,AdminActivity.class));
+                        startActivity(new Intent(AddRestaurantActivity.this, AdminActivity.class));
                     } else {
                         waiting.dismiss();
                        alertDisplayer("Restaurant has been registered!");
@@ -107,11 +112,11 @@ public class AddRestaurantActivity extends AppCompatActivity {
     }
 
     private void declare() {
-        email   = (EditText) findViewById(R.id.edtEmail_res);
-        pass    = (EditText) findViewById(R.id.edtLocation_res);
-        name    = (EditText) findViewById(R.id.edtName_res);
-        phone   = (EditText) findViewById(R.id.edtPhone_res);
-        address = (EditText) findViewById(R.id.edtLocation_res);
-        btnAdd = ( Button) findViewById(R.id.btnAdd_res);
+        email   = (EditText) findViewById(R.id.edtEmail_restaurant);
+        pass    = (EditText) findViewById(R.id.edtPass_restaurant);
+        name    = (EditText) findViewById(R.id.edtName_restaurant);
+        phone   = (EditText) findViewById(R.id.edtPhone_restaurant);
+        address = (EditText) findViewById(R.id.edtLocation_restaurant);
+        btnAdd = ( Button) findViewById(R.id.btnAdd_restaurant);
     }
 }
