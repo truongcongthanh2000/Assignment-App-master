@@ -125,11 +125,11 @@ public class ChangePassActivity extends AppCompatActivity {
         closeChangePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //if(type.equals("restaurent")) startActivity(new Intent(ChangePassActivity.this, RestaurantActivity.class));
+                if (type.equals("staff")) startActivity(new Intent(ChangePassActivity.this, RestaurantActivity.class));
 
-                if(type.equals("admin")) startActivity(new Intent(ChangePassActivity.this,AdminActivity.class));
+                if (type.equals("admin")) startActivity(new Intent(ChangePassActivity.this,AdminActivity.class));
 
-                else startActivity(new Intent(ChangePassActivity.this, InfoPersonActivity.class));
+                if (type.equals("customers")) startActivity(new Intent(ChangePassActivity.this, InfoPersonActivity.class));
 
             }
         });

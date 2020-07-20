@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                                     if (user.getUserType().equals("admin")) {
                                         startActivity(new Intent(LoginActivity.this, AdminActivity.class));
                                     } else if (user.getUserType().equals("staff")) {
-                                        startActivity(new Intent(LoginActivity.this, StaffActivity.class));
+                                        startActivity(new Intent(LoginActivity.this, RestaurantActivity.class));
                                     } else if (user.getUserType().equals("customers")){
                                         if (USER.isEmailVerified()) {
                                             startActivity(new Intent(LoginActivity.this, HomePageActivity.class));

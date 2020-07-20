@@ -43,6 +43,9 @@
         <activity android:name=".InfoPersonActivity"/>
         <activity android:name=".ChangePassActivity"/>
         <activity android:name=".ForgotPassActivity"/>
+        <activity android:name=".RestaurantActivity"/>
+        <activity android:name=".AddFoodActivity"/>
+
 
     </application>
 </manifest>
