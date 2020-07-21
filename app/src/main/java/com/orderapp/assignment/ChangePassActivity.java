@@ -55,7 +55,7 @@ public class ChangePassActivity extends AppCompatActivity {
     private void changePass(){
 
         //get data of User ( typeUser and pass )
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(userID);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -98,7 +98,7 @@ public class ChangePassActivity extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
-                                                    mDatabase.child("users").child(userID).child("pass").setValue(newPass);
+                                                    mDatabase.child("Users").child(userID).child("pass").setValue(newPass);
                                                     alertDisplayer_only("Password change successful");
                                                     // updata pass in database
                                                     Log.d("Change Pass", "123");

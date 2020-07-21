@@ -57,7 +57,7 @@ public class AddRestaurantActivity extends AppCompatActivity {
         String Phone = phone.getText().toString().trim();
         String Address = address.getText().toString().trim();
 
-        final User restaurant  = new User(Email,Pass,Name,Phone,"staff");
+        final User restaurant  = new User(Email,Pass,Name,Phone,"staffs");
 
         if (Email.isEmpty() || Pass.isEmpty() || Name.isEmpty() || Phone.isEmpty()) {
             waiting.dismiss();

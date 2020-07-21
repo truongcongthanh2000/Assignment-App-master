@@ -9,9 +9,9 @@ import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationCompat.Builder;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,7 +22,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.orderapp.assignment.Model.Order;
 import com.orderapp.assignment.Model.User;
 import com.orderapp.assignment.OrderActivity;
 import com.orderapp.assignment.R;
@@ -38,7 +37,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
         super.onMessageReceived(remoteMessage);
 
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(user.getUid());
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -67,7 +66,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 
         RemoteMessage.Notification notification = remoteMessage.getNotification();
         Intent intent = new Intent(this, OrderActivity.class);
-        if(type.equals("restaurent")) {
+        if(type.equals("staffs")) {
             intent =new Intent(this, RestaurantViewOrderActivity.class);
         } else if (type.equals("admin")) {
             intent =new Intent(this, ViewUserActivity.class);
@@ -88,7 +87,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
     private void sendNotification(RemoteMessage remoteMessage, String type) {
         RemoteMessage.Notification notification = remoteMessage.getNotification();
         Intent intent = new Intent(this, OrderActivity.class);
-        if(type.equals("restaurent")) {
+        if(type.equals("staffs")) {
             intent = new Intent(this, RestaurantViewOrderActivity.class);
         }
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
