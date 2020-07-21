@@ -1,5 +1,6 @@
 package com.orderapp.assignment;
 
+<<<<<<< HEAD
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -114,4 +115,7 @@ public class RestaurantViewOrderActivity extends AppCompatActivity {
         return Integer.parseInt(date.substring(0,2));
     }
 
+=======
+public class RestaurantViewOrderActivity {
+>>>>>>> 77be8920298112cadedfed132eed9896eff41768
 }
