@@ -49,7 +49,7 @@ public class RestaurantActivity extends AppCompatActivity {
 //        Paper.init(this);
 
 
-        AnhXa();
+        declare();
         tenQuan.setText(user.getDisplayName());
         LogOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +94,7 @@ public class RestaurantActivity extends AppCompatActivity {
     }
 
 
-    private void AnhXa(){
+    private void declare(){
         LogOut=(ImageView) findViewById(R.id.btnLogOutQuan);
         doiMK=(Button) findViewById(R.id.btnChangePassRestaurant);
         tenQuan=(TextView) findViewById(R.id.twTenQuan);
@@ -161,34 +161,37 @@ public class RestaurantActivity extends AppCompatActivity {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            final String Name = name.getText().toString();
-            final String Phone = phone.getText().toString();
-            if(Name.isEmpty() || Phone.isEmpty()){
-                alertDisplayer("Name or Phone cannot be empty", "Please try again.");
-                //Toast.makeText(InfoPersonActivity.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
-            }
-            else{
-                alertDisplayer_only("Update Successfully");
-                //alertDisplayer("An error has occurred!", "Please try again.");
-                //Toast.makeText(InfoPersonActivity.this, "Cập nhật thông tin thành công", Toast.LENGTH_SHORT).show();
-                dialog.cancel();
-                mDatabase.child("name").setValue(Name);
-                mDatabase.child("phone").setValue(Phone);
-                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                        .setDisplayName(Name)
-                        .setPhotoUri(null)
-                        .build();
-                user.updateProfile(profileUpdates)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Log.d("AddRestaurantActivity", "User Profile Updated");
+                final String Name = name.getText().toString();
+                final String Phone = phone.getText().toString();
+                if(Name.isEmpty() || Phone.isEmpty()){
+                    alertDisplayer("Name or Phone cannot be empty", "Please try again.");
+                    //Toast.makeText(InfoPersonActivity.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    dialog.cancel();
+                    alertDisplayer_only("Update Successfully");
+                    //alertDisplayer("An error has occurred!", "Please try again.");
+                    //Toast.makeText(InfoPersonActivity.this, "Cập nhật thông tin thành công", Toast.LENGTH_SHORT).show();
+                    mDatabase.child("name").setValue(Name);
+                    mDatabase.child("phone").setValue(Phone);
+                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                            .setDisplayName(Name)
+                            .setPhotoUri(null)
+                            .build();
+                    user.updateProfile(profileUpdates)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Log.d("AddRestaurantActivity", "User Profile Updated");
+                                        Log.d("AddRestaurantActivity2", Name + " & " + user.getDisplayName());
+                                        tenQuan.setText(user.getDisplayName());
+                                    }
                                 }
-                            }
-                        });
-                tenQuan.setText(user.getDisplayName());
-            }
+                            });
+                    Log.d("AddRestaurantActivity", Name + "&" + user.getDisplayName());
+                   // tenQuan.setText(user.getDisplayName());
+                }
             }
         });
     }

@@ -77,7 +77,7 @@ public class ViewFoodAdapter extends RecyclerView.Adapter<ViewFoodAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         final Food monAn = arrMonAn.get(i);
         viewHolder.name.setText(monAn.getName());
-        viewHolder.price.setText(monAn.getPrice()+"VNĐ");
+        viewHolder.price.setText(monAn.getPrice()+" VNĐ");
         if(monAn.getStatus() == 0){
             viewHolder.status.setText("Hết hàng");
             viewHolder.status.setTextColor(Color.GRAY);
@@ -122,7 +122,7 @@ public class ViewFoodAdapter extends RecyclerView.Adapter<ViewFoodAdapter.ViewHo
         arrMonAn.remove(position);
         notifyDataSetChanged();
         // remove in database
-        mDatabase = FirebaseDatabase.getInstance().getReference("QuanAn").child(user.getUid()).child(name);
+        mDatabase = FirebaseDatabase.getInstance().getReference("restaurants").child(user.getUid()).child(name);
         mDatabase.setValue(null);
     }
 

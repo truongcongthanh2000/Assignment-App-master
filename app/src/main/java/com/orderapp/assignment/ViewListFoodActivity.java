@@ -76,9 +76,9 @@ public class ViewListFoodActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_view_food);
-        AnhXa();
+        declare();
         initRecyclerView();
-        tenquan.setText("Quán "+ user.getDisplayName());
+        tenquan.setText(user.getDisplayName());
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +87,7 @@ public class ViewListFoodActivity extends AppCompatActivity {
         });
     }
 
-    private void AnhXa(){
+    private void declare(){
         back = (ImageView) findViewById(R.id.btnback);
         tenquan =(TextView) findViewById(R.id.tvtenQuanLayoutXemDSMon);
     }
@@ -103,7 +103,7 @@ public class ViewListFoodActivity extends AppCompatActivity {
         recyclerViewFood.setLayoutManager(layoutManager);
         recyclerViewFood.setItemAnimator(new DefaultItemAnimator());
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("QuanAn").child(userID);
+        mDatabase = FirebaseDatabase.getInstance().getReference("restaurants").child(userID);
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -186,7 +186,7 @@ public class ViewListFoodActivity extends AppCompatActivity {
         Button update = (Button) dialog.findViewById(R.id.btnUpdateFood);
         Button cancel = (Button) dialog.findViewById(R.id.btnCancelFood);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("QuanAn").child(user.getUid()).child(name);
+        mDatabase = FirebaseDatabase.getInstance().getReference("restaurants").child(user.getUid()).child(name);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -225,10 +225,10 @@ public class ViewListFoodActivity extends AppCompatActivity {
                 }
                 else{
                     dialog.cancel();
-                    mDatabase.child("tenMon").setValue(Name);
-                    mDatabase.child("giaMon").setValue(Long.parseLong(Price));
-                    if(conhang.isChecked()) mDatabase.child("tinhTrang").setValue(1);
-                    else if(hethang.isChecked()) mDatabase.child("tinhTrang").setValue(0);
+                    mDatabase.child("name").setValue(Name);
+                    mDatabase.child("price").setValue(Long.parseLong(Price));
+                    if(conhang.isChecked()) mDatabase.child("status").setValue(1);
+                    else if(hethang.isChecked()) mDatabase.child("status").setValue(0);
                     // Reload Activity
                     finish();
                     startActivity(getIntent());

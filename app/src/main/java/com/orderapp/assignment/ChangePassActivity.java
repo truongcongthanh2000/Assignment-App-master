@@ -55,7 +55,7 @@ public class ChangePassActivity extends AppCompatActivity {
     private void changePass(){
 
         //get data of User ( typeUser and pass )
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(userID);
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
