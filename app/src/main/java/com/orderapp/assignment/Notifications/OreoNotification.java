@@ -15,7 +15,7 @@ import androidx.core.app.NotificationCompat.Builder;
 public class OreoNotification extends ContextWrapper {
 
     private static final String CHANNEL_ID = "com.orderapp.assignment";
-    private static final String CHANNEL_NAME = "ahihihi";
+    private static final String CHANNEL_NAME = "orderfood";
 
     private NotificationManager notificationManager;
 
