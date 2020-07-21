@@ -67,7 +67,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 
         RemoteMessage.Notification notification = remoteMessage.getNotification();
         Intent intent = new Intent(this, OrderActivity.class);
-        if(type.equals("restaurent")) {
+        if(type.equals("staff")) {
             intent =new Intent(this, RestaurantViewOrderActivity.class);
         } else if (type.equals("admin")) {
             intent =new Intent(this, ViewUserActivity.class);
@@ -88,7 +88,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
     private void sendNotification(RemoteMessage remoteMessage, String type) {
         RemoteMessage.Notification notification = remoteMessage.getNotification();
         Intent intent = new Intent(this, OrderActivity.class);
-        if(type.equals("restaurent")) {
+        if(type.equals("staff")) {
             intent = new Intent(this, RestaurantViewOrderActivity.class);
         }
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

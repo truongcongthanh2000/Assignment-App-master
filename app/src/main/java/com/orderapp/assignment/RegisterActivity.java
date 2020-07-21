@@ -81,6 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 if (task1.isSuccessful()) {
                                     process.dismiss();
                                     alertDisplayer("Thank you!", "Please check your email to verification.");
+
                                     UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
                                             .setDisplayName(Name)
                                             .setPhotoUri(null)
