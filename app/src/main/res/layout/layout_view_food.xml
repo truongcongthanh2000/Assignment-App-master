@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="10dp"
+    android:id="@+id/view_food"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginTop="21dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/btnback"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/back"
+            android:tint="@color/colorPrimary"/>
+
+
+        <TextView
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/size10dp"
+            android:id="@+id/tvtenQuanLayoutXemDSMon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ten Quan"
+            android:layout_centerHorizontal="true"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/restaurant_font"
+            />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+    android:layout_marginTop="@dimen/size10dp"
+        android:layout_below="@+id/tvtenQuanLayoutXemDSMon"
+        android:id="@+id/recycler_view_food"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

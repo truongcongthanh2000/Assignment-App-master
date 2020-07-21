@@ -45,7 +45,7 @@
         <activity android:name=".ForgotPassActivity"/>
         <activity android:name=".RestaurantActivity"/>
         <activity android:name=".AddFoodActivity"/>
-
+        <activity android:name=".ViewListFoodActivity" />
 
     </application>
 </manifest>

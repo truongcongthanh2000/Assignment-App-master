@@ -70,12 +70,12 @@ public class RestaurantActivity extends AppCompatActivity {
             }
         });
 
-//        xemDSMon.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(RestaurantActivity.this, ViewListFoodActivity.class));
-//            }
-//        });
+        xemDSMon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RestaurantActivity.this, ViewListFoodActivity.class));
+            }
+        });
 
 //        xemDonDatHang.setOnClickListener(new View.OnClickListener() {
 //            @Override
