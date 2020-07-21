@@ -37,7 +37,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
         super.onMessageReceived(remoteMessage);
 
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(user.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -66,12 +66,8 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 
         RemoteMessage.Notification notification = remoteMessage.getNotification();
         Intent intent = new Intent(this, OrderActivity.class);
-<<<<<<< HEAD
         if(type.equals("staff")) {
-=======
-        if(type.equals("staffs")) {
->>>>>>> 77be8920298112cadedfed132eed9896eff41768
-            intent =new Intent(this, RestaurantViewOrderActivity.class);
+            intent = new Intent(this, RestaurantViewOrderActivity.class);
         } else if (type.equals("admin")) {
             intent =new Intent(this, ViewUserActivity.class);
         }
@@ -91,11 +87,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
     private void sendNotification(RemoteMessage remoteMessage, String type) {
         RemoteMessage.Notification notification = remoteMessage.getNotification();
         Intent intent = new Intent(this, OrderActivity.class);
-<<<<<<< HEAD
         if(type.equals("staff")) {
-=======
-        if(type.equals("staffs")) {
->>>>>>> 77be8920298112cadedfed132eed9896eff41768
             intent = new Intent(this, RestaurantViewOrderActivity.class);
         }
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

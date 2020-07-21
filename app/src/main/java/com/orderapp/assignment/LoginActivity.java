@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                             final FirebaseUser USER = FirebaseAuth.getInstance().getCurrentUser();
                             String userID = USER.getUid();
 
-                            mData = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+                            mData = FirebaseDatabase.getInstance().getReference().child("users").child(userID);
                             mData.addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -94,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                     if (user.getUserType().equals("admin")) {
                                         startActivity(new Intent(LoginActivity.this, AdminActivity.class));
-                                    } else if (user.getUserType().equals("staffs")) {
+                                    } else if (user.getUserType().equals("staff")) {
                                         startActivity(new Intent(LoginActivity.this, RestaurantActivity.class));
                                     } else if (user.getUserType().equals("customers")){
                                         if (USER.isEmailVerified()) {
@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 }
                             });
-                            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+                            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(userID);
                             ValueEventListener eventListener = new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {

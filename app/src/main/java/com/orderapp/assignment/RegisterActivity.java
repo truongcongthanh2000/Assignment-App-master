@@ -98,10 +98,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     process.dismiss();
                                     alertDisplayer("Thank you!", "Please check your email to verification.");
 
-<<<<<<< HEAD
-=======
                                     sendNotification(Name);
->>>>>>> 77be8920298112cadedfed132eed9896eff41768
                                     UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
                                             .setDisplayName(Name)
                                             .setPhotoUri(null)
@@ -114,7 +111,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                                     //push data to realtime database
                                     String userID = user.getUid();
-                                    mData.child("Users").child(userID).setValue(new_cus);
+                                    mData.child("users").child(userID).setValue(new_cus);
                                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                                 } else {
                                     alertDisplayer("An error has occurred!", "Please try again.");

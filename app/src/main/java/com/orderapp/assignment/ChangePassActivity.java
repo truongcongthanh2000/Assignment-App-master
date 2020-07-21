@@ -98,7 +98,7 @@ public class ChangePassActivity extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
-                                                    mDatabase.child("Users").child(userID).child("pass").setValue(newPass);
+                                                    mDatabase.child("users").child(userID).child("pass").setValue(newPass);
                                                     alertDisplayer_only("Password change successful");
                                                     // updata pass in database
                                                     Log.d("Change Pass", "123");
@@ -127,7 +127,7 @@ public class ChangePassActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (type.equals("staff")) startActivity(new Intent(ChangePassActivity.this, RestaurantActivity.class));
 
-                if (type.equals("admin")) startActivity(new Intent(ChangePassActivity.this,AdminActivity.class));
+                if (type.equals("admin")) startActivity(new Intent(ChangePassActivity.this, AdminActivity.class));
 
                 if (type.equals("customers")) startActivity(new Intent(ChangePassActivity.this, InfoPersonActivity.class));
 

@@ -1,6 +1,5 @@
 package com.orderapp.assignment;
 
-<<<<<<< HEAD
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -40,8 +39,8 @@ public class RestaurantViewOrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_restaurant_view_order);
 
-        btnThoat =(FButton) findViewById(R.id.btnThoatXemdonhangQuanan);
-        listOrder  =   (ListView) findViewById(R.id.listRestaurent_viewOrder);
+        btnThoat = (FButton) findViewById(R.id.btnThoatXemdonhangQuanan);
+        listOrder = (ListView) findViewById(R.id.listRestaurent_viewOrder);
         arrOrder = new ArrayList<>();
         adapter = new RestaurentViewOrderAdapter(this, R.layout.item_restaurent_view_order, arrOrder);
         listOrder.setAdapter(adapter);
@@ -62,8 +61,8 @@ public class RestaurantViewOrderActivity extends AppCompatActivity {
 
                 Intent OrderDetail = new Intent(RestaurantViewOrderActivity.this, DetailOrderActivity.class);
                 //gửi FoodId (ten của Food) và id quán đến activity FoodDetail
-                OrderDetail.putExtra("FoodID",order.getTenMon());
-                OrderDetail.putExtra("CustomerID",order.getUserID());
+                OrderDetail.putExtra("FoodID", order.getfoodName());
+                OrderDetail.putExtra("CustomerID", order.getUserID());
                 // mở activity  foodDetail
                 startActivity(OrderDetail);
             }
@@ -71,7 +70,7 @@ public class RestaurantViewOrderActivity extends AppCompatActivity {
     }
 
 
-    private void getInfoOrder(){
+    private void getInfoOrder() {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Orders").child(userID);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
@@ -82,9 +81,9 @@ public class RestaurantViewOrderActivity extends AppCompatActivity {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy   hh:mm:ss aa");
                 final String dateCurrent = dateFormat.format(c.getTime());
 
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    for( DataSnapshot ds1 : ds.getChildren()){
-                        if( ds1.getValue() != null){
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    for (DataSnapshot ds1 : ds.getChildren()) {
+                        if (ds1.getValue() != null) {
                             Order order = ds1.getValue(Order.class);
                             int dayOrder = getDayTime(order.getDateTime());
                             int dayCurrent = getDayTime(dateCurrent);
@@ -109,13 +108,7 @@ public class RestaurantViewOrderActivity extends AppCompatActivity {
     }
 
 
-
-
-    private Integer getDayTime(String date){
-        return Integer.parseInt(date.substring(0,2));
+    private Integer getDayTime(String date) {
+        return Integer.parseInt(date.substring(0, 2));
     }
-
-=======
-public class RestaurantViewOrderActivity {
->>>>>>> 77be8920298112cadedfed132eed9896eff41768
 }

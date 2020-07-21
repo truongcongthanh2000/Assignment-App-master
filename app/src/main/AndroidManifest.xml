@@ -8,11 +8,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 77be8920298112cadedfed132eed9896eff41768
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -53,8 +48,9 @@
         <activity android:name=".RestaurantActivity"/>
         <activity android:name=".AddFoodActivity"/>
         <activity android:name=".ViewListFoodActivity" />
+        <activity android:name=".RestaurantViewOrderActivity" />
+        <activity android:name=".DetailOrderActivity" />
 
-<<<<<<< HEAD
         <service
             android:name=".Notifications.MyFirebaseMessaging"
             android:enabled="true"
@@ -63,7 +59,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-=======
->>>>>>> 77be8920298112cadedfed132eed9896eff41768
+
     </application>
 </manifest>
