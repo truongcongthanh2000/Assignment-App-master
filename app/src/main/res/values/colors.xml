@@ -9,7 +9,7 @@
     <color name="colorBlack">#000</color>
     <color name="colorBlue">#2196f3</color>
 
-
+    <color name="colorTransparent">#81FFFFFF</color>
     <color name="pDarkGreen">#8ec549</color>
     <color name="pDarskSlowGreen">#c1f57f</color>
     <color name="Yellow">#FFEB3B</color>

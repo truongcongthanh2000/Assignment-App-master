@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,21 +25,20 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.iid.FirebaseInstanceId;
 import com.orderapp.assignment.Model.User;
 //import com.orderapp.assignment.Notifications.Token;
 
-import io.paperdb.Paper;
 
 public class RestaurantActivity extends AppCompatActivity {
-    Button themMon,xemDSMon, xemDonDatHang,doiMK,update;
+    Button addFood, showListFood, showTableOfOrder, changePassword,update;
     ImageView LogOut;
-    TextView tenQuan;
+    TextView restaurantName;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users").child(user.getUid());
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.layout_restaurant);
 
         ///updateToken(FirebaseInstanceId.getInstance().getToken());
@@ -50,27 +48,28 @@ public class RestaurantActivity extends AppCompatActivity {
 
 
         declare();
-        tenQuan.setText(user.getDisplayName());
+
+        restaurantName.setText(user.getDisplayName());
         LogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LogOut();
             }
         });
-        doiMK.setOnClickListener(new View.OnClickListener() {
+        changePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(RestaurantActivity.this,ChangePassActivity.class));
             }
         });
-        themMon.setOnClickListener(new View.OnClickListener() {
+        addFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(RestaurantActivity.this, AddFoodActivity.class));
             }
         });
 
-        xemDSMon.setOnClickListener(new View.OnClickListener() {
+        showListFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(RestaurantActivity.this, ViewListFoodActivity.class));
@@ -95,12 +94,12 @@ public class RestaurantActivity extends AppCompatActivity {
 
 
     private void declare(){
-        LogOut=(ImageView) findViewById(R.id.btnLogOutQuan);
-        doiMK=(Button) findViewById(R.id.btnChangePassRestaurant);
-        tenQuan=(TextView) findViewById(R.id.twTenQuan);
-        themMon=(Button) findViewById(R.id.btnThemMon);
-        xemDSMon=(Button) findViewById(R.id.btnXemMon);
-        xemDonDatHang= (Button) findViewById(R.id.btnXemDonHang);
+        LogOut=(ImageView) findViewById(R.id.btnLogOutRestaurant);
+        changePassword =(Button) findViewById(R.id.btnChangePassRestaurant);
+        restaurantName =(TextView) findViewById(R.id.edt_restaurantName);
+        addFood =(Button) findViewById(R.id.btnAddFood);
+        showListFood =(Button) findViewById(R.id.btnListFood);
+        showTableOfOrder = (Button) findViewById(R.id.btnTableOfOrder);
         update= findViewById(R.id.btnUpdateInfoRestaurant);
     }
 
@@ -185,7 +184,7 @@ public class RestaurantActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         Log.d("AddRestaurantActivity", "User Profile Updated");
                                         Log.d("AddRestaurantActivity2", Name + " & " + user.getDisplayName());
-                                        tenQuan.setText(user.getDisplayName());
+                                        restaurantName.setText(user.getDisplayName());
                                     }
                                 }
                             });

@@ -9,41 +9,48 @@
     android:paddingLeft="15dp"
     android:paddingRight="15dp"
     android:orientation="vertical"
-    android:background="@color/colorWhite">
+    android:background="@drawable/img">
+<LinearLayout
+    android:id="@+id/ll1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="332dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
+        android:fontFamily="@font/lovepen"
         android:text="Register"
         android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textAppearance="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:textColor="#f9dbd2"
-        android:textSize="50sp"
+        android:textColor="#ffffff"
+        android:textSize="100sp"
         android:textStyle="bold" />
+</LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="100dp">
+        android:background="@drawable/transparent_border"
+        android:padding="@dimen/size10dp"
+        android:layout_below="@+id/ll1">
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_email"
+            android:drawableLeft="@drawable/ic_mail"
             android:drawablePadding="@dimen/size10dp"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite"
             android:textSize="25sp"
-            app:met_baseColor="@color/colorPrimary"
+            app:met_baseColor="@color/colorBlack"
             app:met_floatingLabel="highlight"
-            app:met_primaryColor="@color/colorPrimary"
+            app:met_primaryColor="@color/colorWhite"
             app:met_singleLineEllipsis="true" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -52,12 +59,12 @@
             android:hint="Password"
             android:textColorHint="#FAF8F8"
             android:id="@+id/txtPass"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorWhite"
             android:textSize="25sp"
             android:inputType="textPassword"
-            app:met_baseColor="@color/colorPrimary"
+            app:met_baseColor="@color/colorBlack"
             app:met_floatingLabel="highlight"
-            app:met_primaryColor="@color/colorPrimary"
+            app:met_primaryColor="@color/colorWhite"
             app:met_minCharacters="6"
             app:met_singleLineEllipsis="true"
             android:drawableLeft="@drawable/ic_password"
@@ -67,14 +74,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Full name"
-            android:textColorHint="@color/colorPrimary"
+            android:textColorHint="@color/colorWhite"
             android:id="@+id/txtName"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorWhite"
             android:textSize="25sp"
             android:inputType="text"
-            app:met_baseColor="@color/colorPrimary"
+            app:met_baseColor="@color/colorBlack"
             app:met_floatingLabel="highlight"
-            app:met_primaryColor="@color/colorPrimary"
+            app:met_primaryColor="@color/colorWhite"
             app:met_singleLineEllipsis="true"
             android:drawableLeft="@drawable/ic_name"
             android:drawablePadding="@dimen/size10dp"
@@ -83,38 +90,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Phone Number"
-            android:textColorHint="@color/colorPrimary"
+            android:textColorHint="@color/colorWhite"
             android:id="@+id/txtPhone"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorWhite"
             android:textSize="25sp"
             android:inputType="phone"
-            app:met_baseColor="@color/colorPrimary"
+            app:met_baseColor="@color/colorBlack"
             app:met_floatingLabel="highlight"
-            app:met_primaryColor="@color/colorPrimary"
+            app:met_primaryColor="@color/colorWhite"
             app:met_singleLineEllipsis="true"
             android:drawableLeft="@drawable/ic_phone"
             android:drawablePadding="@dimen/size10dp"
             app:met_maxCharacters="11"
             />
 
-
-
-        <Button
-            android:id="@+id/register_btn"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/elipse_button_pink"
-            android:text="Register" />
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll2"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/border_blue"
+        android:textColor="@color/colorWhite"
+        android:text="Register" />
 
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/back_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="68dp"
-        app:srcCompat="@drawable/ic_back" />
 </RelativeLayout>

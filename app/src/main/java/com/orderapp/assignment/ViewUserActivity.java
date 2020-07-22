@@ -55,7 +55,7 @@ public class ViewUserActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        database = FirebaseDatabase.getInstance().getReference("Users");
+        database = FirebaseDatabase.getInstance().getReference("users");
         home = findViewById(R.id.home_view_user);
 
         loadListUser();

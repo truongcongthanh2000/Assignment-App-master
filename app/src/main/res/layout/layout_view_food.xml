@@ -30,21 +30,21 @@
             android:layout_marginRight="40dp"
             android:gravity="center"
             android:layout_marginTop="@dimen/size10dp"
-            android:id="@+id/tvtenQuanLayoutXemDSMon"
+            android:id="@+id/nameRestaurant_list_food"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ten Quan"
+            android:text="Name"
             android:layout_centerHorizontal="true"
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/restaurant_font"
+            android:fontFamily="@font/cucho"
             />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
     android:layout_marginTop="@dimen/size10dp"
-        android:layout_below="@+id/tvtenQuanLayoutXemDSMon"
+        android:layout_below="@+id/nameFood_list_food"
         android:id="@+id/recycler_view_food"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

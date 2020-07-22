@@ -5,26 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="@color/colorWhite"
+    android:background="@drawable/img"
+    android:paddingBottom="16dp"
+    android:paddingTop="0dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     tools:context=".ForgotPassActivity">
-    <LinearLayout
-        android:layout_marginBottom="20dp"
-        android:id="@+id/linnearForgot"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Forgot Password"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            />
 
-    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/size10dp"
+        android:text="Change Password"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:fontFamily="@font/lovepen"
+        android:textColor="@color/colorWhite"
+        android:textSize="70sp" />
+
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/edt_EmailForgotPass"
@@ -37,19 +35,19 @@
         android:text=""
         android:layout_marginLeft="@dimen/size15dp"
         android:layout_marginRight="@dimen/size15dp"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
         android:textSize="25sp"
-        app:met_baseColor="@color/colorPrimary"
+        app:met_baseColor="@color/colorWhite"
         app:met_floatingLabel="highlight"
-        app:met_primaryColor="@color/colorPrimary"
+        app:met_primaryColor="@color/colorWhite"
         app:met_singleLineEllipsis="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="150dp"
         />
     <info.hoang8f.widget.FButton
-        app:buttonColor="@color/colorPrimary"
+        app:buttonColor="@color/colorWhite"
         android:id="@+id/btn_RetrievePassword"
-        android:layout_margin="40dp"
+        android:layout_margin="20dp"
         android:layout_below="@id/edt_EmailForgotPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

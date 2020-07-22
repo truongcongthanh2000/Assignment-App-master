@@ -4,17 +4,11 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.MenuItem;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,11 +23,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -41,27 +30,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 import com.orderapp.assignment.Adapter.ViewFoodAdapter;
 import com.orderapp.assignment.Model.Food;
 import com.orderapp.assignment.Model.Banner;
 import com.orderapp.assignment.Model.Common;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.Calendar;
-
-import dmax.dialog.SpotsDialog;
 
 
 import java.util.ArrayList;
 
 public class ViewListFoodActivity extends AppCompatActivity {
     ImageView back;
-    TextView tenquan;
+    TextView nameRestaurant;
     RecyclerView recyclerViewFood;
     ArrayList<Food> arrFood = new ArrayList<>();
     ViewFoodAdapter viewFoodAdapter;
@@ -78,7 +57,7 @@ public class ViewListFoodActivity extends AppCompatActivity {
         setContentView(R.layout.layout_view_food);
         declare();
         initRecyclerView();
-        tenquan.setText(user.getDisplayName());
+        nameRestaurant.setText(user.getDisplayName());
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,7 +68,7 @@ public class ViewListFoodActivity extends AppCompatActivity {
 
     private void declare(){
         back = (ImageView) findViewById(R.id.btnback);
-        tenquan =(TextView) findViewById(R.id.tvtenQuanLayoutXemDSMon);
+        nameRestaurant =(TextView) findViewById(R.id.nameRestaurant_list_food);
     }
 
 
@@ -136,19 +115,19 @@ public class ViewListFoodActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case 121:
                 new AlertDialog.Builder(this)
-                        .setTitle("Xóa món ăn")
-                        .setMessage("Bạn muốn xóa "+name+" ?")
+                        .setTitle("Delete foood")
+                        .setMessage("Do you want to delete "+name+" ?")
                         // Specifying a listener allows you to take an action before dismissing the dialog.
                         // The dialog is automatically dismissed when a dialog button is clicked.
-                        .setPositiveButton("Xóa", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // Continue with delete operation
-                                displayMessage("Đã xóa thành công " + name);
+                                displayMessage("Successfully delete " + name);
                                 viewFoodAdapter.removeItem(pos,name);
                             }
                         })
                         // A null listener allows the button to dismiss the dialog and take no further action.
-                        .setNegativeButton("Hủy", null)
+                        .setNegativeButton("Cancel", null)
                         .setIcon(R.drawable.ic_delete_red_24dp)
                         .show();
                 return true;
@@ -159,7 +138,7 @@ public class ViewListFoodActivity extends AppCompatActivity {
                 Banner banner = new Banner(name,userID,arrFood.get(pos).getLinkPicture());
                 mDatabase = FirebaseDatabase.getInstance().getReference("Banner").child(userID);
                 mDatabase.setValue(banner);
-                displayMessage("Đã đặt "+ name+" làm Hot Food");
+                displayMessage("Set "+ name+" is your hot food");
                 return true;
 
                 default:
@@ -181,8 +160,8 @@ public class ViewListFoodActivity extends AppCompatActivity {
         dialog.show();
         final EditText nameFood = (EditText) dialog.findViewById(R.id.updateNameFood);
         final EditText priceFood = (EditText) dialog.findViewById(R.id.updatePriceFood);
-        final RadioButton conhang = (RadioButton) dialog.findViewById(R.id.conhang);
-        final RadioButton hethang = (RadioButton) dialog.findViewById(R.id.hethang);
+        final RadioButton availableOrder = (RadioButton) dialog.findViewById(R.id.conhang);
+        final RadioButton unavailableOrder = (RadioButton) dialog.findViewById(R.id.hethang);
         Button update = (Button) dialog.findViewById(R.id.btnUpdateFood);
         Button cancel = (Button) dialog.findViewById(R.id.btnCancelFood);
 
@@ -195,10 +174,10 @@ public class ViewListFoodActivity extends AppCompatActivity {
                 nameFood.setText(food.getName());
                 priceFood.setText(food.getPrice()+"");
                 if(food.getStatus() == 1){
-                    conhang.setChecked(true);
+                    availableOrder.setChecked(true);
                 }
                 else{
-                    hethang.setChecked(true);
+                    unavailableOrder.setChecked(true);
                 }
             }
 
@@ -221,14 +200,14 @@ public class ViewListFoodActivity extends AppCompatActivity {
                 final String Name = nameFood.getText().toString();
                 final String Price = priceFood.getText().toString();
                 if(Name.isEmpty() || Price.isEmpty() ){
-                    Toast.makeText(ViewListFoodActivity.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewListFoodActivity.this, "Enter missing place", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     dialog.cancel();
                     mDatabase.child("name").setValue(Name);
                     mDatabase.child("price").setValue(Long.parseLong(Price));
-                    if(conhang.isChecked()) mDatabase.child("status").setValue(1);
-                    else if(hethang.isChecked()) mDatabase.child("status").setValue(0);
+                    if(availableOrder.isChecked()) mDatabase.child("status").setValue(1);
+                    else if(unavailableOrder.isChecked()) mDatabase.child("status").setValue(0);
                     // Reload Activity
                     finish();
                     startActivity(getIntent());

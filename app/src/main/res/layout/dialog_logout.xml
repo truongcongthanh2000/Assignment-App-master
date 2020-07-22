@@ -1,45 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="280dp"
-    android:paddingTop="@dimen/size10dp"
-    android:background="@color/colorWhite"
+    android:layout_height="wrap_content"
+    android:background="@drawable/transparent_border"
+    android:layout_marginTop="@dimen/size20dp"
     android:orientation="vertical">
 
     <TextView
+        android:layout_marginTop="@dimen/size20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/size10dp"
-        android:text="Thông báo"
-        android:textColor="#FF9100"
-        android:textSize="17sp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:textColor="#FF9100"
-        android:paddingLeft="10dp"
-        android:background="@color/colorGray"
-        android:layout_marginTop="35dp"/>
+        android:text="Log Out"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:textSize="@dimen/size25dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:paddingLeft="@dimen/size10dp"
-        android:text="Bạn thực sự muốn đăng xuất."
+        android:layout_marginTop="@dimen/size10dp"
+        android:text="Are you sure you want to log out?"
+        android:textAlignment="center"
         android:textColor="@color/colorBlack"
         android:textSize="18sp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:textColor="#FF9100"
-        android:paddingLeft="10dp"
-        android:background="@color/colorGray"
-        android:layout_marginTop="220dp"/>
-
     <LinearLayout
         android:gravity="center"
         android:layout_width="match_parent"
@@ -47,15 +33,16 @@
         android:layout_centerInParent="false"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="false"
-        android:layout_marginTop="230dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/size20dp">
 
         <Button
             android:layout_gravity="center"
             android:id="@+id/btnNo_logout"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:background="#43A047"
-            android:text="Không"
+            android:layout_height="40dp"
+            android:background="@drawable/border_green"
+            android:text="Cancel"
             android:textColor="@color/colorWhite"
             android:textSize="15sp"
             android:textAllCaps="false"/>
@@ -64,10 +51,10 @@
             android:layout_gravity="center"
             android:id="@+id/btnYes_logout"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="30dp"
-            android:background="#FF9100"
-            android:text="Có"
+            android:background="@drawable/border_blue"
+            android:text="Log Out"
             android:textColor="@color/colorWhite"
             android:textSize="15sp"
             android:textAllCaps="false"/>
@@ -75,4 +62,4 @@
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

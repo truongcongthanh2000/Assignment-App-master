@@ -17,7 +17,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -41,8 +40,8 @@ import java.util.Calendar;
 import dmax.dialog.SpotsDialog;
 
 public class AddFoodActivity extends AppCompatActivity {
-    private Button themMon,folder;
-    private EditText tenMon,giaMon;
+    private Button addFood,folder;
+    private EditText nameFood, priceFood;
     private ImageView image;
     private int REQUEST_CODE_FOLDER = 123;
     FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -66,12 +65,12 @@ public class AddFoodActivity extends AppCompatActivity {
             }
         });
 
-        themMon.setOnClickListener(new View.OnClickListener() {
+        addFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 waiting.show();
-                final String nameFood = tenMon.getText().toString().trim();
-                final String str_foodPrice = giaMon.getText().toString().trim();
+                final String nameFood = AddFoodActivity.this.nameFood.getText().toString().trim();
+                final String str_foodPrice = priceFood.getText().toString().trim();
                 if(nameFood.isEmpty() || str_foodPrice.isEmpty()){
                     waiting.dismiss();
                     alertDisplayer("Enter empty place", "Please try agian");
@@ -175,11 +174,11 @@ public class AddFoodActivity extends AppCompatActivity {
         return true;
     }
     private void declare(){
-        themMon = findViewById(R.id.btnAddFood);
+        addFood = findViewById(R.id.btnAddFood);
         folder  = findViewById(R.id.btnfolder);
-        tenMon  = findViewById(R.id.edtFoodName);
-        giaMon  = findViewById(R.id.edtFoodPrice);
-        image   = findViewById(R.id.ivImage);
+        nameFood = findViewById(R.id.edtFoodName);
+        priceFood = findViewById(R.id.edtFoodPrice);
+        //image   = findViewById(R.id.ivImage);
     }
 
     private void alertDisplayer(String title,String message){

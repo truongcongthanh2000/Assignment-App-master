@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="15dp"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="15dp"
-    android:background="@color/colorWhite"
+
+    android:background="@drawable/img"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -16,40 +13,42 @@
         android:layout_marginTop="10dp"
         android:text="Login"
         android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textAppearance="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:textColor="#f9dbd2"
-        android:textSize="50sp"
+        android:fontFamily="@font/lovepen"
+        android:textColor="#ffffff"
+        android:textSize="150sp"
         android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="243dp"
-        app:srcCompat="@drawable/logo_foodcourt" />
 
     <LinearLayout
         android:id="@+id/LinearLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="1dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+       >
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/transparent_border"
+    android:padding="@dimen/size15dp">
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/email_log"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_email"
+            android:drawableLeft="@drawable/ic_mail"
             android:drawablePadding="@dimen/size10dp"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             android:textSize="20sp"
-            app:met_baseColor="#000000"
+            app:met_baseColor="#250000"
             app:met_floatingLabel="highlight"
-            app:met_primaryColor="#000000"
+            app:met_primaryColor="#ffffff"
             app:met_singleLineEllipsis="true" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -60,34 +59,16 @@
             android:drawablePadding="@dimen/size15dp"
             android:hint="Password"
             android:inputType="textPassword"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             android:textSize="20sp"
             app:met_baseColor="#000000"
             app:met_floatingLabel="highlight"
-            app:met_errorColor="#fbcd59"
+            app:met_errorColor="#007BFF"
             app:met_minCharacters="6"
-            app:met_primaryColor="#000000"
+            app:met_primaryColor="#ffffff"
             app:met_singleLineEllipsis="true" />
         </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="0dp">
-
-        <Button
-            android:id="@+id/login_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/size10dp"
-            android:layout_weight="1"
-            android:background="@drawable/elipse_button_pink"
-            android:text="Login"
-            android:textAllCaps="false"
-            android:textColor="#474545"
-            android:textSize="20sp" />
     </LinearLayout>
 
     <TextView
@@ -97,9 +78,29 @@
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
         android:text="Forgot password?"
-        android:textColor="#776B6B"
+        android:textColor="#ffffff"
         android:textStyle="italic"
         android:textIsSelectable="true"
-        android:textSize="18sp" />
+        android:textSize="22sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="0dp">
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_margin="@dimen/size10dp"
+            android:background="@drawable/border_blue"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
 
 </LinearLayout>

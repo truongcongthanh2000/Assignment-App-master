@@ -9,19 +9,20 @@
     android:paddingTop="10dp"
     android:paddingLeft="16dp"
 
-    android:background="@color/yellowApp">
+    android:background="@drawable/img">
 
 
     <TextView
-        android:id="@+id/twTenQuan"
+        android:id="@+id/edt_restaurantName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Your Restaurant"
-        android:textColor="@color/colorBlack"
-        android:textSize="28sp"
+        android:textColor="@color/colorWhite"
+        android:textSize="70sp"
+        android:textStyle="bold"
         android:layout_marginTop="15dp"
-        android:fontFamily="@font/restaurant_font"/>
+        android:fontFamily="@font/lovepen"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +37,7 @@
         <Button
             android:layout_gravity="center"
             android:textColor="@color/colorWhite"
-            android:id="@+id/btnXemMon"
+            android:id="@+id/btnListFood"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
@@ -48,7 +49,7 @@
         <Button
             android:layout_gravity="center"
             android:textColor="@color/colorWhite"
-            android:id="@+id/btnThemMon"
+            android:id="@+id/btnAddFood"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
@@ -60,7 +61,7 @@
         <Button
             android:layout_gravity="center"
             android:textColor="@color/colorWhite"
-            android:id="@+id/btnXemDonHang"
+            android:id="@+id/btnTableOfOrder"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
@@ -98,7 +99,7 @@
 
     <ImageView
         android:tint="@color/colorWhite"
-        android:id="@+id/btnLogOutQuan"
+        android:id="@+id/btnLogOutRestaurant"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_alignParentEnd="true"

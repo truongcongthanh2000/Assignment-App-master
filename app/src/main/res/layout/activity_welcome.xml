@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/img">
 
     <TextView
         android:id="@+id/textView"
@@ -10,24 +11,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Welcome"
+        android:fontFamily="@font/lovepen"
         android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textAppearance="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:textColor="#f9dbd2"
-        android:textSize="50sp"
+        android:textSize="120sp"
         android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="400dp"
-        app:srcCompat="@drawable/logo_foodcourt" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You want to:"
+        android:fontFamily="@font/restaurant_font"
+        android:textSize="30sp"
+        android:textColor="@color/colorWhite"
+        android:textAlignment="center"/>
 
     <Button
         android:id="@+id/login_button"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:background="@drawable/elipse_button_pink"
         android:text="Log in" />
 

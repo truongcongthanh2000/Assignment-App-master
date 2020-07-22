@@ -8,7 +8,7 @@
     android:paddingBottom="16dp"
     android:paddingTop="0dp"
     android:paddingLeft="16dp"
-    android:background="@color/colorBlue"
+    android:background="@drawable/img"
 
     tools:context=".WelcomeActivity">
 
@@ -19,9 +19,10 @@
         android:layout_height="wrap_content"
         android:text="Admin"
         android:layout_centerHorizontal="true"
-        android:textSize="40sp"
+        android:textSize="70dp"
+        android:textStyle="bold"
         android:textColor="@color/colorWhite"
-        android:fontFamily="@font/restaurant_font"
+        android:fontFamily="@font/lovepen"
         android:layout_marginTop="45dp"/>
 
     <LinearLayout
@@ -36,7 +37,7 @@
         <Button
             android:layout_marginTop="30dp"
             android:layout_gravity="center"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBlack"
             android:id="@+id/add_res_admin"
             android:layout_width="match_parent"
             android:layout_height="65dp"
@@ -47,7 +48,7 @@
 
         <Button
             android:layout_gravity="center"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBlack"
             android:id="@+id/del_res_admin"
             android:layout_width="match_parent"
             android:layout_height="65dp"
@@ -80,12 +81,6 @@
         android:layout_marginRight="15dp"
         />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginBottom="10dp"
-        android:src="@drawable/logo_foodcourt" />
 
 
 </RelativeLayout>
