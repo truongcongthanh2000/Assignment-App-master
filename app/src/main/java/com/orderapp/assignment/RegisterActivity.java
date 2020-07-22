@@ -64,13 +64,6 @@ public class RegisterActivity extends AppCompatActivity {
                 register();
             }
         });
-        final ImageView back_register = (ImageView) findViewById(R.id.back_btn);
-        back_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(RegisterActivity.this, WelcomeActivity.class));
-            }
-        });
         mData = FirebaseDatabase.getInstance().getReference();
     }
 
