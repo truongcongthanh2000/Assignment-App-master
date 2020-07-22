@@ -141,14 +141,14 @@ public class DetailOrderActivity extends AppCompatActivity {
                     Picasso.get().load(order.getlinkPic()).into(hinh);
                     quantity = order.getnumber();
                     gia1mon = order.getprice();
-                    gia.setText(gia1mon + "VNĐ");
+                    gia.setText(gia1mon + " VNĐ");
                     tenmon.setText(order.getfoodName());
                     tenKh.setText("Tên: " + order.getcusName());
                     sdt.setText("Sđt: " + order.getcusPhone());
                    //diachi.setText("Địa chỉ giao hàng: " + order.get());
                     ngaydathang.setText("Ngày đặt hàng: " + order.getDateTime());
                     soluong.setText("Số lượng: " + order.getnumber());
-                    tongtien.setText("Tổng tiền: " + gia1mon * quantity + "VNĐ");
+                    tongtien.setText("Tổng tiền: " + gia1mon * quantity + " VNĐ");
                 }
 
             }
