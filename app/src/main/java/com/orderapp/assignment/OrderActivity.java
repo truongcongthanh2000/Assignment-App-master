@@ -1,4 +1,6 @@
 package com.orderapp.assignment;
 
-public class OrderActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class OrderActivity extends AppCompatActivity {
 }

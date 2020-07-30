@@ -1,4 +1,6 @@
 package com.orderapp.assignment;
 
-public class FavoriteActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class FavoriteActivity extends AppCompatActivity {
 }

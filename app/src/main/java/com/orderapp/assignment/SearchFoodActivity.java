@@ -1,4 +1,6 @@
 package com.orderapp.assignment;
 
-public class SearchFoodActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SearchFoodActivity extends AppCompatActivity {
 }

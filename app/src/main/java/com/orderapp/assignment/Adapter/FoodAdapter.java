@@ -52,6 +52,7 @@ public class FoodAdapter extends BaseAdapter {
 
         name =(TextView) view.findViewById(R.id.nameFood);
         nameRestaurant = (TextView) view.findViewById(R.id.nameRestaurant);
+        picture = (ImageView) view.findViewById(R.id.picture);
 
         final Food food = ListFood.get(i);
 
@@ -59,6 +60,7 @@ public class FoodAdapter extends BaseAdapter {
         nameRestaurant.setText(food.getNameRestaurant());
 
         Picasso.get().load(food.getLinkPicture()).into(picture);
+
         // set anim
         Animation animation = AnimationUtils.loadAnimation(context,R.anim.item_animation_from_left);
 

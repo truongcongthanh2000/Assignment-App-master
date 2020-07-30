@@ -24,6 +24,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.andremion.counterfab.CounterFab;
+import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
@@ -69,19 +70,19 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
     private static final int TIME_DELAY = 2500;
     private static long back_pressed = 0;
 
-    @Override
-    protected void attachBaseContext(Context newBase){
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
+//    @Override
+//    protected void attachBaseContext(Context newBase){
+//        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+//    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
+//        }
 
         setContentView(R.layout.acitivity_customer);
 
@@ -127,10 +128,10 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
         toggle.syncState();
 
         //Init paper
-        Paper.init(this);
+        //Paper.init(this);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
+        navigationView.setNavigationItemSelectedListener(this);
         View headerview = navigationView.getHeaderView(0);
         name = (TextView) headerview.findViewById(R.id.name);
         username = (TextView) headerview.findViewById(R.id.username);
@@ -148,7 +149,7 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 //position: position on listview
                 Food food = arrFood.get(position);
-                Intent foodDetail = new Intent(CustomerActivity.this,FoodDetailActivity.class);
+                Intent foodDetail = new Intent(CustomerActivity.this, FoodDetailActivity.class);
                 //send FoodName and ID Restaurant to activity FoodDetail
                 foodDetail.putExtra("FoodId",food.getName());
                 foodDetail.putExtra("RestaurentID",food.getIdRestaurant());
@@ -312,7 +313,7 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
                 public void onClick(View v) {
                     dialogLogOut.cancel();
                     //delete remember user and password
-                    Paper.book().destroy();
+                    //Paper.book().destroy();
 
                     startActivity(new Intent(CustomerActivity.this,WelcomeActivity.class));
                 }
@@ -333,7 +334,7 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
     }
 
     private void load_data_food() {
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Restaurant");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("restaurants");
 
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
@@ -341,8 +342,8 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     int i= 0;
                     for(DataSnapshot ds1: ds.getChildren()){
-                        Food mon = ds1.getValue(Food.class);
-                        arrFood.add(new Food(mon.getName(),mon.getNameRestaurant(),mon.getLinkPicture(),mon.getIdRestaurant(),mon.getPrice(),mon.getStatus()));
+                        Food food = ds1.getValue(Food.class);
+                        arrFood.add(new Food(food.getName(), food.getNameRestaurant(), food.getLinkPicture(), food.getIdRestaurant(), food.getPrice(), food.getStatus()));
                         adapter.notifyDataSetChanged();
                         ++i;
                         if(i==3) break; // each restaurant has 3 food data
@@ -359,7 +360,7 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
     }
 
     private void load_data_user() {
-        mDatabase  = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+        mDatabase  = FirebaseDatabase.getInstance().getReference().child("users").child(userID);
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

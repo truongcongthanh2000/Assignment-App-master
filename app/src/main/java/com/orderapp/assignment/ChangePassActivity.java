@@ -105,7 +105,7 @@ public class ChangePassActivity extends AppCompatActivity {
                                                     if (type.equals("admin")) startActivity(new Intent(ChangePassActivity.this, AdminActivity.class));
                                                     if (type.equals("customers")) {
                                                         Log.d("Change Pass", "new Activity");
-                                                        startActivity(new Intent(ChangePassActivity.this, InfoPersonActivity.class));
+                                                        startActivity(new Intent(ChangePassActivity.this, CustomerActivity.class));
                                                     }
                                                     Log.d("Change Pass", "124");
                                                 } else {
@@ -129,7 +129,7 @@ public class ChangePassActivity extends AppCompatActivity {
 
                 if (type.equals("admin")) startActivity(new Intent(ChangePassActivity.this, AdminActivity.class));
 
-                if (type.equals("customers")) startActivity(new Intent(ChangePassActivity.this, InfoPersonActivity.class));
+                if (type.equals("customers")) startActivity(new Intent(ChangePassActivity.this, CustomerActivity.class));
 
             }
         });
