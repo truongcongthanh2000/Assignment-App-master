@@ -178,7 +178,7 @@ public class AddFoodActivity extends AppCompatActivity {
         folder  = findViewById(R.id.btnfolder);
         nameFood = findViewById(R.id.edtFoodName);
         priceFood = findViewById(R.id.edtFoodPrice);
-        //image   = findViewById(R.id.ivImage);
+        image   = findViewById(R.id.ivImage);
     }
 
     private void alertDisplayer(String title,String message){

@@ -259,6 +259,8 @@ public class CartActivity extends AppCompatActivity {
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                arrCart.clear();
+                totalPrice = 0;
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     Cart cart = ds.getValue(Cart.class);
                     arrCart.add(cart);
@@ -310,29 +312,19 @@ public class CartActivity extends AppCompatActivity {
                         cartAdapter.notifyDataSetChanged();
                         totalPrice = totalPrice - mRecentlyDeletedItem.getPay();
                         total.setText(String.valueOf(totalPrice)+ "đ");
+                        mDatabase.child(mRecentlyDeletedItem.getNameFood()).setValue(null);
 
-                        ValueEventListener eventListener1 = new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                mDatabase.child(mRecentlyDeletedItem.getNameFood()).setValue(null);
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        };
-                        mDatabase.addListenerForSingleValueEvent(eventListener1);
                         Snackbar snackbar = Snackbar
                                 .make(relativeLayout, "Đã xóa "+mRecentlyDeletedItem.getNameFood(), Snackbar.LENGTH_LONG)
                                 .setAction("Quay lại", new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
                                         Snackbar snackbar1 = Snackbar.make(relativeLayout, "Đã khôi phục "+mRecentlyDeletedItem.getNameFood(), Snackbar.LENGTH_LONG);
-                                        arrCart.add(mRecentlyDeletedItemPosition,mRecentlyDeletedItem);
+                                        mDatabase.child(mRecentlyDeletedItem.getNameFood()).setValue(mRecentlyDeletedItem);
+                                      //  arrCart.add(mRecentlyDeletedItemPosition,mRecentlyDeletedItem);
                                         cartAdapter.notifyDataSetChanged();
-                                        totalPrice = totalPrice + mRecentlyDeletedItem.getPay();
-                                        total.setText(String.valueOf(totalPrice)+ "đ");
+                                       // totalPrice = totalPrice + mRecentlyDeletedItem.getPay();
+                                       // total.setText(String.valueOf(totalPrice)+ "đ");
                                         snackbar1.show();
                                     }
                                 });
