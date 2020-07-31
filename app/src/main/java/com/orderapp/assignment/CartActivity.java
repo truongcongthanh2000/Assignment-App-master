@@ -164,10 +164,11 @@ public class CartActivity extends AppCompatActivity {
                             };
                             mDatabase.addListenerForSingleValueEvent(eventListener1);
 
+                            startActivity(new Intent(CartActivity.this, PaymentMomo.class));
 
                             // đóng dialog
                             dialogConfirm.dismiss();
-                            Toast.makeText(CartActivity.this, "Đặt hàng thành công", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CartActivity.this, "Order successful", Toast.LENGTH_SHORT).show();
 
                             // xóa db Cart của user sau khi đặt hàng thành công
                             mDatabase1 = FirebaseDatabase.getInstance().getReference().child("Carts").child(userID);
@@ -315,11 +316,11 @@ public class CartActivity extends AppCompatActivity {
                         mDatabase.child(mRecentlyDeletedItem.getNameFood()).setValue(null);
 
                         Snackbar snackbar = Snackbar
-                                .make(relativeLayout, "Đã xóa "+mRecentlyDeletedItem.getNameFood(), Snackbar.LENGTH_LONG)
-                                .setAction("Quay lại", new View.OnClickListener() {
+                                .make(relativeLayout, "Remove "+mRecentlyDeletedItem.getNameFood(), Snackbar.LENGTH_LONG)
+                                .setAction("Redo", new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        Snackbar snackbar1 = Snackbar.make(relativeLayout, "Đã khôi phục "+mRecentlyDeletedItem.getNameFood(), Snackbar.LENGTH_LONG);
+                                        Snackbar snackbar1 = Snackbar.make(relativeLayout, "Add "+mRecentlyDeletedItem.getNameFood() + " again", Snackbar.LENGTH_LONG);
                                         mDatabase.child(mRecentlyDeletedItem.getNameFood()).setValue(mRecentlyDeletedItem);
                                       //  arrCart.add(mRecentlyDeletedItemPosition,mRecentlyDeletedItem);
                                         cartAdapter.notifyDataSetChanged();
