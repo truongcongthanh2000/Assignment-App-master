@@ -19,10 +19,10 @@ public class Order {
     public Order(String dateTime, String cusPhone, String userID, String cusName, String resName, String resID, String foodName, long price, long number, String linkPic,int check) {
         this.dateTime =dateTime;
         this.cusPhone = cusPhone;
-        UserID = userID;
+        this.UserID = userID;
         this.cusName = cusName;
         this.resName = resName;
-        resID = resID;
+        this.resID = resID;
         this.foodName = foodName;
         this.price = price;
         this.number = number;
