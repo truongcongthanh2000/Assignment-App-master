@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -110,6 +112,8 @@ public class ViewListFoodActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
+//        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+//        final int pos = info.position;
         final int pos = item.getGroupId();
         final String name = arrFood.get(pos).getName();
         switch (item.getItemId()){
@@ -150,7 +154,7 @@ public class ViewListFoodActivity extends AppCompatActivity {
     }
 
     private void displayMessage(String msg){
-        Snackbar snackbar = Snackbar.make(findViewById(R.id.view_food), msg, Snackbar.LENGTH_LONG);
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.view_food_layout), msg, Snackbar.LENGTH_LONG);
         snackbar.show();
     }
 

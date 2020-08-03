@@ -10,7 +10,7 @@
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
     android:paddingBottom="10dp"
-    android:id="@+id/view_food"
+    android:id="@+id/view_food_layout"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,9 +43,12 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-    android:layout_marginTop="@dimen/size10dp"
-        android:layout_below="@+id/nameFood_list_food"
+        android:layout_marginTop="@dimen/size10dp"
+        android:layout_below="@+id/nameRestaurant_list_food"
         android:id="@+id/recycler_view_food"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
 </LinearLayout>

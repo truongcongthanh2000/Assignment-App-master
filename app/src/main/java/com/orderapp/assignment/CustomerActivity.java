@@ -346,7 +346,7 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
                         arrFood.add(new Food(food.getName(), food.getNameRestaurant(), food.getLinkPicture(), food.getIdRestaurant(), food.getPrice(), food.getStatus()));
                         adapter.notifyDataSetChanged();
                         ++i;
-                        if(i==3) break; // each restaurant has 3 food data
+                        //if(i==3) break; // each restaurant has 3 food data
                     }
                 }
             }

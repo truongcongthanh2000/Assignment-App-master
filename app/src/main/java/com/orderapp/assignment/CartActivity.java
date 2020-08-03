@@ -267,7 +267,7 @@ public class CartActivity extends AppCompatActivity {
                     arrCart.add(cart);
                     totalPrice = totalPrice + cart.getPay();
                 }
-                total.setText(String.valueOf(totalPrice)+ "đ");
+                total.setText(String.valueOf(totalPrice)+ " VNĐ");
 
                 final CartAdapter cartAdapter = new CartAdapter(arrCart,getApplicationContext());
                 cartAdapter.notifyDataSetChanged();
@@ -312,7 +312,7 @@ public class CartActivity extends AppCompatActivity {
 
                         cartAdapter.notifyDataSetChanged();
                         totalPrice = totalPrice - mRecentlyDeletedItem.getPay();
-                        total.setText(String.valueOf(totalPrice)+ "đ");
+                        total.setText(String.valueOf(totalPrice)+ " VNĐ");
                         mDatabase.child(mRecentlyDeletedItem.getNameFood()).setValue(null);
 
                         Snackbar snackbar = Snackbar

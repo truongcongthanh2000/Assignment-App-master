@@ -339,13 +339,13 @@ public class FoodDetailActivity extends AppCompatActivity implements RatingDialo
 
                         price = food.getPrice();
                         image = food.getLinkPicture();
-                        priceFood.setText(price +" đ");
+                        priceFood.setText(price +" VNĐ");
                         number.setOnClickListener(new ElegantNumberButton.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 quantity = Long.parseLong(number.getNumber());
                                 price = quantity * food.getPrice();
-                                priceFood.setText(price+" đ");
+                                priceFood.setText(price+" VNĐ");
                             }
                         });
 

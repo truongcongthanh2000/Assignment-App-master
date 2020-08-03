@@ -12,7 +12,7 @@
         <item
             android:id="@+id/nav_search"
             android:icon="@drawable/searchplus"
-            android:title="Search order" />
+            android:title="Search food" />
         <item
             android:id="@+id/nav_listOrder"
             android:icon="@drawable/listorder"

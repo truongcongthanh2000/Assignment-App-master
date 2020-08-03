@@ -122,15 +122,6 @@
                 <TextView
                     android:textColor="#1A554E"
                     android:layout_marginLeft="15dp"
-                    android:id="@+id/diachi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="diachi"
-                    android:textSize="17sp"
-                    android:textStyle="italic"/>
-                <TextView
-                    android:textColor="#1A554E"
-                    android:layout_marginLeft="15dp"
                     android:id="@+id/soluong"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -183,10 +174,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <RadioButton
-                        android:id="@+id/danggiao"
+                        android:id="@+id/danglam"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Đang giao"
+                        android:text="Đang làm"
                         android:textSize="18sp"/>
                     <RadioButton
                         android:id="@+id/dagiao"

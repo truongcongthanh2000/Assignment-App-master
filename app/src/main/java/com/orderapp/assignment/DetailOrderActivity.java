@@ -46,7 +46,7 @@ public class DetailOrderActivity extends AppCompatActivity {
     TextView tenmon, gia, tenKh, sdt, diachi, soluong, ngaydathang, tongtien;
     ImageView hinh;
     FButton xacnhan;
-    RadioButton dagiao, danggiao, hethang;
+    RadioButton dagiao, danglam, hethang;
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String userID = user.getUid();
@@ -81,14 +81,14 @@ public class DetailOrderActivity extends AppCompatActivity {
         xacnhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if( dagiao.isChecked() || danggiao.isChecked() || hethang.isChecked()){
+                if( dagiao.isChecked() || danglam.isChecked() || hethang.isChecked()){
                     String status="";
                     if (dagiao.isChecked()) {
                         status = "đã giao";
                         mDatabase.child("Orders").child(userID).child(CustomerID).child(foodID).child("check").setValue(1);
                     }
-                    else if (danggiao.isChecked()) {
-                        status ="đang giao";
+                    else if (danglam.isChecked()) {
+                        status ="đang làm";
                         mDatabase.child("Orders").child(userID).child(CustomerID).child(foodID).child("check").setValue(2);
                     }
                     else if (hethang.isChecked()) {
@@ -118,14 +118,14 @@ public class DetailOrderActivity extends AppCompatActivity {
         gia = (TextView) findViewById(R.id.tien);
         tenKh = (TextView) findViewById(R.id.ten);
         sdt = (TextView) findViewById(R.id.sdt);
-        diachi = (TextView) findViewById(R.id.diachi);
+        //diachi = (TextView) findViewById(R.id.diachi);
         soluong = (TextView) findViewById(R.id.soluong);
         ngaydathang = (TextView) findViewById(R.id.ngaydathang);
         tongtien = (TextView) findViewById(R.id.tongtien);
         hinh = (ImageView) findViewById(R.id.hinh);
         xacnhan = (FButton) findViewById(R.id.xacnhan);
         dagiao = (RadioButton) findViewById(R.id.dagiao);
-        danggiao = (RadioButton) findViewById(R.id.danggiao);
+        danglam = (RadioButton) findViewById(R.id.danglam);
         hethang = (RadioButton) findViewById(R.id.hethang);
     }
 
