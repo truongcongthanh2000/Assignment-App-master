@@ -116,6 +116,7 @@ public class ViewFoodAdapter extends RecyclerView.Adapter<ViewFoodAdapter.ViewHo
             menu.add(this.getAdapterPosition(),122,1,"Cập nhật món ăn");
             menu.add(this.getAdapterPosition(),123,2,"Đặt làm Hot Food");
         }
+
     }
 
     public void removeItem(int position, String name){

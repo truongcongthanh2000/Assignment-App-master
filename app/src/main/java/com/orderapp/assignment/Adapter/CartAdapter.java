@@ -38,7 +38,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         final Cart cart = arrCart.get(i);
         viewHolder.nameOfFood.setText(cart.getNameFood());
-        viewHolder.price.setText(String.valueOf(cart.getPrice())+"Đ");
+        viewHolder.price.setText(String.valueOf(cart.getPrice())+" VNĐ");
         viewHolder.nameOfRes.setText(cart.getNameRes());
         viewHolder.quantity.setText(String.valueOf(cart.getAmount()));
         Picasso.get().load(cart.getLinkPics()).into(viewHolder.image);
