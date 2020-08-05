@@ -14,12 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.daimajia.slider.library.SliderLayout
+        <com.glide.slider.library.SliderLayout
             android:id="@+id/slider"
             android:layout_width="match_parent"
             android:layout_height="160dp">
 
-        </com.daimajia.slider.library.SliderLayout>
+        </com.glide.slider.library.SliderLayout>
 
         <ListView
             android:id="@+id/lvFood"

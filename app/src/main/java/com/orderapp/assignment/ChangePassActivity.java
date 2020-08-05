@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -98,16 +99,18 @@ public class ChangePassActivity extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
+                                                    // updata pass in database
                                                     mDatabase.child("users").child(userID).child("pass").setValue(newPass);
                                                     alertDisplayer_only("Password change successful");
-                                                    // updata pass in database
-                                                    Log.d("Change Pass", "123");
-                                                    if (type.equals("admin")) startActivity(new Intent(ChangePassActivity.this, AdminActivity.class));
+                                                    if (type.equals("admin")) {
+                                                        startActivity(new Intent(ChangePassActivity.this, AdminActivity.class));
+                                                    }
                                                     if (type.equals("customers")) {
-                                                        Log.d("Change Pass", "new Activity");
                                                         startActivity(new Intent(ChangePassActivity.this, CustomerActivity.class));
                                                     }
-                                                    Log.d("Change Pass", "124");
+                                                    if (type.equals("staff")) {
+                                                        startActivity(new Intent(ChangePassActivity.this, RestaurantActivity.class));
+                                                    }
                                                 } else {
                                                     alertDisplayer("Password change failed", "Please try again");
                                                 }

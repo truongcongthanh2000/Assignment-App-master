@@ -16,4 +16,9 @@
     <color name="Red">#F44336</color>
     <color name="Orange">#FF9800</color>
     <color name="yellowApp">#fbcd59</color>
+
+    <color name="glide_slider_background_color">#000000</color>
+    <color name="glide_slider_indicator_color">#FFFFFF</color>
+    <color name="glide_slider_description_color">#FFFFFF</color>
+    <color name="glide_slider_description_background_color">#77000000</color>
 </resources>

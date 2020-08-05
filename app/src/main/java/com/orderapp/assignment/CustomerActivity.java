@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,10 +25,15 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.andremion.counterfab.CounterFab;
-import com.daimajia.slider.library.Animations.DescriptionAnimation;
-import com.daimajia.slider.library.SliderLayout;
-import com.daimajia.slider.library.SliderTypes.BaseSliderView;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.glide.slider.library.animations.DescriptionAnimation;
+import com.glide.slider.library.SliderLayout;
+import com.glide.slider.library.slidertypes.BaseSliderView;
+import com.glide.slider.library.slidertypes.TextSliderView;
+import com.glide.slider.library.tricks.ViewPagerEx;
+//import com.daimajia.slider.library.Animations.DescriptionAnimation;
+//import com.daimajia.slider.library.SliderLayout;
+//import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+//import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -52,7 +58,7 @@ import java.util.HashMap;
 import io.paperdb.Paper;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class CustomerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class CustomerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
     TextView name, username;
     ListView lvFood;
     ArrayList<Food> arrFood;
@@ -162,8 +168,8 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
     @Override
     public void onStop() {
 
-        super.onStop();
         mSlider.stopAutoCycle();
+        super.onStop();
     }
 
     @Override
@@ -391,38 +397,61 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
                     //i = i+1;
                     Banner banner = postSnapShot.getValue(Banner.class);
                     image_list.put(banner.getId() + "_" + banner.getIdRes(), banner.getImage());
-
                 }
+                Log.d("Test banner: ", "Ok 1");
                 for (String key : image_list.keySet()) {
                     String[] keySplit = key.split("_");
                     String nameOfFood = keySplit[0];
                     String idOfRestaurent = keySplit[1];
-
+                    Log.d("Test banner: ", "Ok 2");
+                    Log.d("Test banner: ", "Ok 3: " + nameOfFood + idOfRestaurent);
                     //Creative Slider
-                    final TextSliderView textSliderView = new TextSliderView(getBaseContext());
-                    textSliderView
+                    final TextSliderView sliderView = new TextSliderView(getBaseContext());
+                    sliderView
                             .description(nameOfFood)
                             .image(image_list.get(key))
-                            .setScaleType(BaseSliderView.ScaleType.Fit)
+                           // .setProgressBarVisible(true)
                             .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
                                 @Override
                                 public void onSliderClick(BaseSliderView slider) {
                                     Intent intent = new Intent(CustomerActivity.this, FoodDetailActivity.class);
-                                    intent.putExtras(textSliderView.getBundle());
+                                    intent.putExtras(sliderView.getBundle());
                                     startActivity(intent);
                                 }
-
                             });
-
                     //add extra bundle
-                    textSliderView.bundle(new Bundle());
-                    textSliderView.getBundle().putString("FoodId", nameOfFood);
-                    textSliderView.getBundle().putString("RestaurentID", idOfRestaurent);
+                    sliderView.bundle(new Bundle());
+                    sliderView.getBundle().putString("FoodId", nameOfFood);
+                    sliderView.getBundle().putString("RestaurentID", idOfRestaurent);
 
-                    mSlider.addSlider(textSliderView);
+                    mSlider.addSlider(sliderView);
 
                     //Remove event after finish
                     banners.removeEventListener(this);
+//                    final TextSliderView textSliderView = new TextSliderView(getBaseContext());
+//                    textSliderView
+//                            .description(nameOfFood)
+//                            .image(image_list.get(key))
+//                            .setScaleType(BaseSliderView.ScaleType.Fit)
+//                            .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
+//                                @Override
+//                                public void onSliderClick(BaseSliderView slider) {
+//                                    Intent intent = new Intent(CustomerActivity.this, FoodDetailActivity.class);
+//                                    intent.putExtras(textSliderView.getBundle());
+//                                    startActivity(intent);
+//                                }
+//
+//                            });
+//
+//                    //add extra bundle
+//                    textSliderView.bundle(new Bundle());
+//                    textSliderView.getBundle().putString("FoodId", nameOfFood);
+//                    textSliderView.getBundle().putString("RestaurentID", idOfRestaurent);
+//
+//                    mSlider.addSlider(textSliderView);
+//
+//                    //Remove event after finish
+//                    banners.removeEventListener(this);
                 }
             }
 
@@ -431,5 +460,29 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
 
             }
         });
+        mSlider.setPresetTransformer(SliderLayout.Transformer.Background2Foreground);
+        mSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+        mSlider.setCustomAnimation(new DescriptionAnimation());
+        mSlider.setDuration(4000);
+    }
+
+    @Override
+    public void onSliderClick(BaseSliderView slider) {
+        Toast.makeText(this, slider.getBundle().get("extra") + "", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 }
