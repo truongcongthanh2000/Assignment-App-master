@@ -34,6 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.orderapp.assignment.Adapter.CartAdapter;
 import com.orderapp.assignment.Model.Cart;
 import com.orderapp.assignment.Model.Common;
+import com.orderapp.assignment.Model.MoMoConstants;
 import com.orderapp.assignment.Model.Order;
 import com.orderapp.assignment.Model.User;
 import com.orderapp.assignment.Notifications.APIService;
@@ -64,6 +65,7 @@ public class CartActivity extends AppCompatActivity {
     String userID = user.getUid();
     User uInfo;
     DatabaseReference mDatabase, mDatabase1;
+    int environment = 1;//developer default - Production environment = 2
 
     RecyclerView recyclerView;
     RelativeLayout relativeLayout;
@@ -164,7 +166,13 @@ public class CartActivity extends AppCompatActivity {
                             };
                             mDatabase.addListenerForSingleValueEvent(eventListener1);
 
-                            startActivity(new Intent(CartActivity.this, PaymentMomo.class));
+                            Bundle data = new Bundle();
+                            Intent intent = new Intent(CartActivity.this, PaymentMomo.class);
+                            data.putInt(MoMoConstants.KEY_ENVIRONMENT, environment);
+                            intent.putExtras(data);
+                            intent.putExtra("totalPrice", Long.toString(totalPrice));
+                            Log.d("CartActivity", "new PaymentMomo");
+                            startActivity(intent);
 
                             // đóng dialog
                             dialogConfirm.dismiss();
@@ -186,7 +194,7 @@ public class CartActivity extends AppCompatActivity {
                             mDatabase1.addListenerForSingleValueEvent(eventListener2);
 
 
-                            startActivity(new Intent(CartActivity.this, CustomerActivity.class));
+                            //startActivity(new Intent(CartActivity.this, CustomerActivity.class));
 
                         }
                     });

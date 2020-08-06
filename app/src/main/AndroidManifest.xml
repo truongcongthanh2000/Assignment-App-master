@@ -57,7 +57,9 @@
         <activity android:name=".SearchFoodActivity" />
         <activity android:name=".OrderActivity" />
         <activity android:name=".FavoriteActivity" />
+        <activity android:name=".MappingActivity"/>
         <activity android:name=".PaymentMomo"/>
+        <activity android:name=".Momo"/>
         <service
             android:name=".Notifications.MyFirebaseMessaging"
             android:enabled="true"

@@ -94,7 +94,7 @@ public class FoodDetailActivity extends AppCompatActivity implements RatingDialo
 
 
         btnCart = (FloatingActionButton)findViewById(R.id.btnCart);
-        btnShare = (FloatingActionButton) findViewById(R.id.btnShare);
+        //btnShare = (FloatingActionButton) findViewById(R.id.btnShare);
         number = (ElegantNumberButton) findViewById(R.id.number_button);
         pic = (ImageView) findViewById(R.id.image_food);
         nameFood = (TextView) findViewById(R.id.food_name);

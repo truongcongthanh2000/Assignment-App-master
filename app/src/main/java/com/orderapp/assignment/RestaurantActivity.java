@@ -136,16 +136,20 @@ public class RestaurantActivity extends AppCompatActivity {
         Button update = (Button) dialog.findViewById(R.id.btnUpdate);
         Button cancel = (Button) dialog.findViewById(R.id.btnCancel);
 
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                name.setText(user.getName());
-                phone.setText(user.getPhone());
+                User uuser = dataSnapshot.getValue(User.class);
+                name.setText(uuser.getName());
+                phone.setText(uuser.getPhone());
+                Log.d("AdRestaurantDataChange1", user.getDisplayName());
+                Log.d("AdRestaurantDataChange2", uuser.getName());
+                //restaurantName.setText(user.getDisplayName());
+                //restaurantName.setText(uuser.getName());
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
@@ -171,8 +175,6 @@ public class RestaurantActivity extends AppCompatActivity {
                     alertDisplayer_only("Update Successfully");
                     //alertDisplayer("An error has occurred!", "Please try again.");
                     //Toast.makeText(InfoPersonActivity.this, "Cập nhật thông tin thành công", Toast.LENGTH_SHORT).show();
-                    mDatabase.child("name").setValue(Name);
-                    mDatabase.child("phone").setValue(Phone);
                     UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                             .setDisplayName(Name)
                             .setPhotoUri(null)
@@ -185,11 +187,13 @@ public class RestaurantActivity extends AppCompatActivity {
                                         Log.d("AddRestaurantActivity", "User Profile Updated");
                                         Log.d("AddRestaurantActivity2", Name + " & " + user.getDisplayName());
                                         restaurantName.setText(user.getDisplayName());
+                                        mDatabase.child("name").setValue(Name);
+                                        mDatabase.child("phone").setValue(Phone);
                                     }
                                 }
                             });
-                    Log.d("AddRestaurantActivity", Name + "&" + user.getDisplayName());
-                   // tenQuan.setText(user.getDisplayName());
+                    Log.d("AddRestaurantActivity5", Name + "&" + user.getDisplayName());
+                    ////restaurantName.setText(user.getDisplayName());
                 }
             }
         });

@@ -1,12 +1,12 @@
 package com.orderapp.assignment;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.orderapp.assignment.Model.MoMoConstants;
 
@@ -15,12 +15,13 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import vn.momo.momo_partner.AppMoMoLib;
-import vn.momo.momo_partner.MoMoParameterNameMap;
+import vn.momo.momo_partner.MoMoParameterNamePayment;
 
 public class PaymentMomo extends Activity {
     @BindView(R2.id.tvEnvironment)
@@ -48,11 +49,11 @@ public class PaymentMomo extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AppMoMoLib.getInstance().setEnvironment(AppMoMoLib.ENVIRONMENT.DEVELOPMENT);
-        setContentView(R.layout.activity_momo);
+        setContentView(R.layout.activity_payment);
         ButterKnife.bind(this);
-        Bundle data = getIntent().getExtras();
-
+        Intent firstIntent = getIntent();
+        amount = firstIntent.getStringExtra("totalPrice");
+        Bundle data = firstIntent.getExtras();
         if(data != null){
             environment = data.getInt(MoMoConstants.KEY_ENVIRONMENT);
         }
@@ -71,29 +72,27 @@ public class PaymentMomo extends Activity {
         tvMerchantName.setText("Merchant Name: "+merchantName);
     }
 
+    //example payment
     private void requestPayment() {
         AppMoMoLib.getInstance().setAction(AppMoMoLib.ACTION.PAYMENT);
         AppMoMoLib.getInstance().setActionType(AppMoMoLib.ACTION_TYPE.GET_TOKEN);
+
         if (edAmount.getText().toString() != null && edAmount.getText().toString().trim().length() != 0)
             amount = edAmount.getText().toString().trim();
 
         Map<String, Object> eventValue = new HashMap<>();
         //client Required
-        eventValue.put("merchantname", merchantName); //Tên đối tác. được đăng ký tại https://business.momo.vn. VD: Google, Apple, Tiki , CGV Cinemas
-        eventValue.put("merchantcode", merchantCode); //Mã đối tác, được cung cấp bởi MoMo tại https://business.momo.vn
-        eventValue.put("amount", total_amount); //Kiểu integer
-        eventValue.put("orderId", "orderId123456789"); //uniqueue id cho BillId, giá trị duy nhất cho mỗi BILL
-        eventValue.put("orderLabel", "Mã đơn hàng"); //gán nhãn
+        eventValue.put(MoMoParameterNamePayment.MERCHANT_NAME, merchantName);
+        eventValue.put(MoMoParameterNamePayment.MERCHANT_CODE, merchantCode);
+        eventValue.put(MoMoParameterNamePayment.AMOUNT, amount);
+        eventValue.put(MoMoParameterNamePayment.DESCRIPTION, description);
+        //client Optional
+        eventValue.put(MoMoParameterNamePayment.FEE, fee);
+        eventValue.put(MoMoParameterNamePayment.MERCHANT_NAME_LABEL, merchantNameLabel);
 
-        //client Optional - bill info
-        eventValue.put("merchantnamelabel", "Dịch vụ");//gán nhãn
-        eventValue.put("fee", total_fee); //Kiểu integer
-        eventValue.put("description", description); //mô tả đơn hàng - short description
+        eventValue.put(MoMoParameterNamePayment.REQUEST_ID,  merchantCode+"-" +  UUID.randomUUID().toString());
+        eventValue.put(MoMoParameterNamePayment.PARTNER_CODE, merchantCode);
 
-        //client extra data
-        eventValue.put("requestId",  merchantCode+"merchant_billId_"+System.currentTimeMillis());
-        eventValue.put("partnerCode", merchantCode);
-        //Example extra data
         JSONObject objExtraData = new JSONObject();
         try {
             objExtraData.put("site_code", "008");
@@ -102,15 +101,18 @@ public class PaymentMomo extends Activity {
             objExtraData.put("screen_name", "Special");
             objExtraData.put("movie_name", "Kẻ Trộm Mặt Trăng 3");
             objExtraData.put("movie_format", "2D");
+            objExtraData.put("ticket", "{\"ticket\":{\"01\":{\"type\":\"std\",\"price\":110000,\"qty\":3}}}");
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        eventValue.put("extraData", objExtraData.toString());
-
-        eventValue.put("extra", "");
+        eventValue.put(MoMoParameterNamePayment.EXTRA_DATA, objExtraData.toString());
+        eventValue.put(MoMoParameterNamePayment.REQUEST_TYPE, "payment");
+        eventValue.put(MoMoParameterNamePayment.LANGUAGE, "vi");
+        eventValue.put(MoMoParameterNamePayment.EXTRA, "");
+        //Request momo app
         AppMoMoLib.getInstance().requestMoMoCallBack(this, eventValue);
-
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -138,7 +140,7 @@ public class PaymentMomo extends Activity {
                 tvMessage.setText("message: " + this.getString(R.string.not_receive_info));
             }
         } else {
-            tvMessage.setText("message: " + this.getString(R.string.not_receive_info));
+            tvMessage.setText("message: " + this.getString(R.string.not_receive_info_err));
         }
     }
 
