@@ -12,6 +12,7 @@ import com.orderapp.assignment.Model.MoMoConstants;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +32,7 @@ public class PaymentMomo extends Activity {
     @BindView(R2.id.tvMerchantName)
     TextView tvMerchantName;
     @BindView(R2.id.edAmount)
-        EditText edAmount;
+    TextView edAmount;
     @BindView(R2.id.tvMessage)
     TextView tvMessage;
     @BindView(R2.id.btnPayMoMo)
@@ -59,13 +60,13 @@ public class PaymentMomo extends Activity {
         }
         if(environment == 0){
             AppMoMoLib.getInstance().setEnvironment(AppMoMoLib.ENVIRONMENT.DEBUG);
-            tvEnvironment.setText("Development Environment");
+            //tvEnvironment.setText("Development Environment");
         }else if(environment == 1){
             AppMoMoLib.getInstance().setEnvironment(AppMoMoLib.ENVIRONMENT.DEVELOPMENT);
-            tvEnvironment.setText("Development Environment");
+            //tvEnvironment.setText("Development Environment");
         }else if(environment == 2){
             AppMoMoLib.getInstance().setEnvironment(AppMoMoLib.ENVIRONMENT.PRODUCTION);
-            tvEnvironment.setText("PRODUCTION Environment");
+            //tvEnvironment.setText("PRODUCTION Environment");
         }
 
         tvMerchantCode.setText("Merchant Code: "+merchantCode);
@@ -77,8 +78,8 @@ public class PaymentMomo extends Activity {
         AppMoMoLib.getInstance().setAction(AppMoMoLib.ACTION.PAYMENT);
         AppMoMoLib.getInstance().setActionType(AppMoMoLib.ACTION_TYPE.GET_TOKEN);
 
-        if (edAmount.getText().toString() != null && edAmount.getText().toString().trim().length() != 0)
-            amount = edAmount.getText().toString().trim();
+//        if (edAmount.getText().toString() != null && edAmount.getText().toString().trim().length() != 0)
+//            amount = edAmount.getText().toString().trim();
 
         Map<String, Object> eventValue = new HashMap<>();
         //client Required

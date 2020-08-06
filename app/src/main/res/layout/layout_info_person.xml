@@ -112,23 +112,23 @@
         <Button
             android:id="@+id/btnUpdateInfo"
             android:textColor="@color/colorWhite"
-            android:background="@drawable/border_blue"
+            android:background="@drawable/border_green"
             android:layout_marginTop="0dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="Cập nhật thông tin"
+            android:text="Update Information"
             android:textAllCaps="false"
             android:textSize="16sp"/>
         <Button
             android:id="@+id/btnChangePassUser"
             android:textColor="@color/colorWhite"
-            android:background="@drawable/border_blue"
+            android:background="@drawable/border_green"
             android:layout_marginTop="0dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="Thay đổi Password"
+            android:text="Change Password"
             android:textAllCaps="false"
             android:textSize="16sp"/>
     </LinearLayout>
@@ -136,10 +136,10 @@
     <Button
         android:id="@+id/btnLogOutUser"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="110dp"
-        android:background="@drawable/border_blue"
+        android:background="@drawable/border_green"
         android:text="LOGOUT"
         android:textColor="@color/colorWhite"
         android:textSize="20sp" />

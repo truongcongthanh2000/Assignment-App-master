@@ -18,7 +18,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:typeface="serif"
-                android:text="Development Environment"
+                android:text="Momo Payment"
                 android:textColor="#cd1076"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
@@ -36,21 +36,21 @@
                 android:textColor="#000"
                 android:textSize="18sp"/>
 
-            <EditText
+            <TextView
                 android:id="@+id/edAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="Input amount default 10.000đ"/>
+                android:text="Please reconfirm your order"
+                android:layout_marginTop="50dp"
+                android:textAlignment="center"/>
 
             <TextView android:id="@+id/tvMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:textSize="16sp"
-                android:textColor="#000"
+                android:textColor="@color/white"
                 android:layout_marginBottom="20dp"
-                android:hint="show message"
                 />
 
             <Button

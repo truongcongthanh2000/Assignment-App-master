@@ -96,114 +96,93 @@ public class CartActivity extends AppCompatActivity {
                 if (arrCart.size() > 0) {
 
                     //open dialog_confirmCart
-                    final Dialog dialogConfirm = new Dialog(CartActivity.this, R.style.Theme_Dialog);
-                    dialogConfirm.setContentView(R.layout.dialog_confirmcart);
-                    //anh xa
-                    TextView cancel = (TextView) dialogConfirm.findViewById(R.id.cancelCart);
-                    TextView confirm = (TextView) dialogConfirm.findViewById(R.id.confirmCart);
-                    dialogConfirm.show();
-                    cancel.setOnClickListener(new View.OnClickListener() {
+                    //get date-time
+                    Calendar c = Calendar.getInstance();
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy   hh:mm:ss aa");
+                    final String dateTime = dateFormat.format(c.getTime());
+
+                    // get address
+                    mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(userID);
+                    ValueEventListener eventListener = new ValueEventListener() {
                         @Override
-                        public void onClick(View v) {
-                            dialogConfirm.dismiss();
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            uInfo = dataSnapshot.getValue(User.class);
+                            // get sdt + ten khach hang
+                            phoneCus = uInfo.getPhone();
+                            nameCus = uInfo.getName();
+                            // them vào mảng Order
+                            for (int i = 0; i < arrCart.size(); i++) {
+                                arrOrder.add(new Order(dateTime, phoneCus, userID,
+                                        nameCus, arrCart.get(i).getNameRes(), arrCart.get(i).getIDRes(),
+                                        arrCart.get(i).getNameFood(), arrCart.get(i).getPrice(),
+                                        arrCart.get(i).getAmount(), arrCart.get(i).getLinkPics(), 0));
+                                if (!arrID.contains(arrCart.get(i).getIDRes())) {
+                                    arrID.add(arrCart.get(i).getIDRes());
+                                }
+                            }
+
+                            //Send notification
+                            sendNotification(nameCus, arrID);
                         }
-                    });
 
-                    confirm.setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void onClick(View v) {
-                            //get date-time
-                            Calendar c = Calendar.getInstance();
-                            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy   hh:mm:ss aa");
-                            final String dateTime = dateFormat.format(c.getTime());
-
-                            // get address
-                            mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(userID);
-                            ValueEventListener eventListener = new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    uInfo = dataSnapshot.getValue(User.class);
-                                    // get sdt + ten khach hang
-                                    phoneCus = uInfo.getPhone();
-                                    nameCus = uInfo.getName();
-                                    // them vào mảng Order
-                                    for (int i = 0; i < arrCart.size(); i++) {
-                                        arrOrder.add(new Order(dateTime, phoneCus, userID,
-                                                nameCus, arrCart.get(i).getNameRes(), arrCart.get(i).getIDRes(),
-                                                arrCart.get(i).getNameFood(), arrCart.get(i).getPrice(),
-                                                arrCart.get(i).getAmount(), arrCart.get(i).getLinkPics(), 0));
-                                        if (!arrID.contains(arrCart.get(i).getIDRes())) {
-                                            arrID.add(arrCart.get(i).getIDRes());
-                                        }
-                                    }
-
-                                    //Send notification
-                                    sendNotification(nameCus, arrID);
-                                }
-
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-
-                                }
-                            };
-                            mDatabase.addListenerForSingleValueEvent(eventListener);
-
-
-                            // ghi data vào db Orders
-                            mDatabase = FirebaseDatabase.getInstance().getReference().child("Orders");
-                            ValueEventListener eventListener1 = new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    for (int i = 0; i < arrOrder.size(); i++) {
-                                        mDatabase.child(arrOrder.get(i).getresID()).child(userID).child(arrOrder.get(i).getfoodName()).setValue(arrOrder.get(i));
-                                    }
-                                }
-
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-
-                                }
-                            };
-                            mDatabase.addListenerForSingleValueEvent(eventListener1);
-
-                            Bundle data = new Bundle();
-                            Intent intent = new Intent(CartActivity.this, PaymentMomo.class);
-                            data.putInt(MoMoConstants.KEY_ENVIRONMENT, environment);
-                            intent.putExtras(data);
-                            intent.putExtra("totalPrice", Long.toString(totalPrice));
-                            Log.d("CartActivity", "new PaymentMomo");
-                            startActivity(intent);
-
-                            // đóng dialog
-                            dialogConfirm.dismiss();
-                            Toast.makeText(CartActivity.this, "Order successful", Toast.LENGTH_SHORT).show();
-
-                            // xóa db Cart của user sau khi đặt hàng thành công
-                            mDatabase1 = FirebaseDatabase.getInstance().getReference().child("Carts").child(userID);
-                            ValueEventListener eventListener2 = new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    dataSnapshot.getRef().setValue(null);
-                                }
-
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-
-                                }
-                            };
-                            mDatabase1.addListenerForSingleValueEvent(eventListener2);
-
-
-                            //startActivity(new Intent(CartActivity.this, CustomerActivity.class));
+                        public void onCancelled(DatabaseError databaseError) {
 
                         }
-                    });
+                    };
+                    mDatabase.addListenerForSingleValueEvent(eventListener);
+
+
+                    // ghi data vào db Orders
+                    mDatabase = FirebaseDatabase.getInstance().getReference().child("Orders");
+                    ValueEventListener eventListener1 = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (int i = 0; i < arrOrder.size(); i++) {
+                                mDatabase.child(arrOrder.get(i).getresID()).child(userID).child(arrOrder.get(i).getfoodName()).setValue(arrOrder.get(i));
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    };
+                    mDatabase.addListenerForSingleValueEvent(eventListener1);
+
+                    Bundle data = new Bundle();
+                    Intent intent = new Intent(CartActivity.this, PaymentMomo.class);
+                    data.putInt(MoMoConstants.KEY_ENVIRONMENT, environment);
+                    intent.putExtras(data);
+                    intent.putExtra("totalPrice", Long.toString(totalPrice));
+                    Log.d("CartActivity", "new PaymentMomo");
+                    startActivity(intent);
+
+                    // đóng dialog
+                    Toast.makeText(CartActivity.this, "Order successful", Toast.LENGTH_SHORT).show();
+
+                    // xóa db Cart của user sau khi đặt hàng thành công
+                    mDatabase1 = FirebaseDatabase.getInstance().getReference().child("Carts").child(userID);
+                    ValueEventListener eventListener2 = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            dataSnapshot.getRef().setValue(null);
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    };
+                    mDatabase1.addListenerForSingleValueEvent(eventListener2);
+
+
+                    //startActivity(new Intent(CartActivity.this, CustomerActivity.class));
 
                 } else {
-                    Toast.makeText(CartActivity.this, "Không có món ăn trong Giỏ hàng", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CartActivity.this, "Cart is empty", Toast.LENGTH_SHORT).show();
                 }
             }
-
         });
 
         }

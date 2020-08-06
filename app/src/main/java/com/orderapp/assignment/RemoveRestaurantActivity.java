@@ -83,6 +83,8 @@ public class RemoveRestaurantActivity extends AppCompatActivity {
                                 Log.d("Test ID", userID);
                                 database = FirebaseDatabase.getInstance().getReference().child("restaurants");
                                 database.child(userID).removeValue();
+                                database = FirebaseDatabase.getInstance().getReference().child("users");
+                                database.child(userID).removeValue();
                                 waiting.dismiss();
                                 alertDisplayer_only("Delete restaurant succesful");
                                 startActivity(new Intent(RemoveRestaurantActivity.this, AdminActivity.class));
