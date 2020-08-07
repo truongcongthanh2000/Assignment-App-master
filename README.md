@@ -36,6 +36,28 @@
 
 </ul>
 
+## Feature of customer
+<h3>Main Feature of customers</h3>
+<ul>
+<li>Search food</li>
+<li>Rating</li>
+<li>Comment</li>
+<li>Add favorite food</li>
+<li>List order</li>
+<li>Payment</li>
+<li>Rating</li>
+<li>Comment</li>
+<li>Favorite food</li>
+<li>and more...</li>
+<p align="center">
+  <img src="/result_screenshot/viewCustomer_info.jpg" alt=""  width="130" height="280" >
+  <img src="/result_screenshot/searchFood.jpg" alt=""  width="130" height="280" >
+  <img src="/result_screenshot/foodDetail.jpg" alt=""  width="130" height="280" >
+  <img src="/result_screenshot/ratingFood.jpg" alt=""  width="130" height="280" >
+  <img src="/result_screenshot/list_order_customer.jpg" alt=""  width="130" height="280" >
+</p>
+</ul>
+
 ## Features of admin
 <ul>
 <li>Add Restaurant</li>
@@ -48,6 +70,8 @@
 </p>
 
 </ul>
+
+## Features of 
 
  
 
