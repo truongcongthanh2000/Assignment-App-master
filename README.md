@@ -16,6 +16,7 @@
   <img src="/result_screenshot/register.jpg" alt=""  width="162" height="351" >
   <img src="/result_screenshot/login.jpg" alt=""  width="162" height="351" >
   <img src="/result_screenshot/forgotPassword.jpg" alt=""  width="162" height="351" >
+  <img src="/result_screenshot/Verify_email_sign_up.jpg" alt=""  width="162" height="351" >
 </p>
 
 </ul>
