@@ -44,7 +44,7 @@
 <li>Comment</li>
 <li>Add favorite food</li>
 <li>List order</li>
-<li>Payment</li> In this app, we use Momo Test, you can find in [here](https://developers.momo.vn/#/docs/testing_information?id=%e1%bb%a8ng-d%e1%bb%a5ng-momo)
+<li>Payment</li> In this app, we use Momo Test, you can find in [here](https://developers.momo.vn/#/docs/testing_information)
 <p align="center">
   <img src="/result_screenshot/viewCustomer_info.jpg" alt=""  width="108" height="234" >
   <img src="/result_screenshot/searchFood.jpg" alt=""  width="108" height="234" >
