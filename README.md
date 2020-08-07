@@ -44,6 +44,7 @@
 <li>Comment</li>
 <li>Add favorite food</li>
 <li>List order</li>
+[This is an absolute link to a nested folder](https://notebooks.azure.com/anon-jhu4eq/libraries/ReadmeLinkingTest/tree/testfolder)
 <li>Payment</li> In this app, we use Momo Test, you can find in [here](https://developers.momo.vn/#/docs/testing_information)
 <p align="center">
   <img src="/result_screenshot/viewCustomer_info.jpg" alt=""  width="108" height="234" >
