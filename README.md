@@ -7,8 +7,18 @@
 4. Trần Văn Cường - 1810852
 
 ## Firebase Database
+<ul>
+<li>Create account</li>
+<li>Login</li>
+<li>ForgotPassword</li>
+<p align="center">
+  <img src="/result_screenshot/login_signup.jpg" alt=""  width="100" height="250" >
+  <img src="/result_screenshot/register.jpg" alt=""  width="100" height="250" >
+  <img src="/result_screenshot/login.jpg" alt=""  width="100" height="250" >
+  <img src="/result_screenshot/forgotPassword.jpg" alt=""  width="100" height="250" >
+</p>
 
-  <img src="/result_screenshot/login_signup.jpg" alt=""  width="280" height="480" >
+</ul>
 
 
 
