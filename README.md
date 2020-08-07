@@ -25,10 +25,12 @@
 <li>Update info</li>
 <li>Change password</li>
 <li>Forgot password</li>
-  <img src="/result_screenshot/updateInfo_infoPersonCustomer.jpg" alt=""  width="130" height="280" >
+<li>Logout</li>
   <img src="/result_screenshot/update_info_restaurant.jpg" alt=""  width="130" height="280" >
-  <img src="/result_screenshot/forgotPassword.jpg" alt=""  width="130" height="280" >
   <img src="/result_screenshot/change_password.jpg" alt=""  width="130" height="280" >
+  <img src="/result_screenshot/forgotPassword.jpg" alt=""  width="130" height="280" >
+  <img src="/result_screenshot/logout_customer.jpg" alt=""  width="130" height="280" >
+
 
 </ul>
  
