@@ -26,13 +26,29 @@
 <li>Change password</li>
 <li>Forgot password</li>
 <li>Logout</li>
+
+<p align="center">
   <img src="/result_screenshot/update_info_restaurant.jpg" alt=""  width="130" height="280" >
   <img src="/result_screenshot/change_password.jpg" alt=""  width="130" height="280" >
   <img src="/result_screenshot/forgotPassword.jpg" alt=""  width="130" height="280" >
   <img src="/result_screenshot/logout_customer.jpg" alt=""  width="130" height="280" >
-
+</p>
 
 </ul>
+
+## Features of admin
+<ul>
+<li>Add Restaurant</li>
+<li>Delete Restaurant</li>
+
+<p align="center">
+  <img src="/result_screenshot/view_admin.jpg" alt=""  width="162" height="351" >
+  <img src="/result_screenshot/add_restaurant.jpg" alt=""  width="162" height="351" >
+  <img src="/result_screenshot/delete_restaurant.jpg" alt=""  width="162" height="351" >
+</p>
+
+</ul>
+
  
 
 
