@@ -78,7 +78,27 @@ This app is using payment service from momo, momo test in particular. You can fi
 
 </ul>
 
-## Features of 
+## Features of staff 
+<ul>
+<li>Add/Remove/Update food</li>
+<li>Order confirmation</li>
+<li>Choose Hot Food</li>
+<li>Favorite food</li>
+<li>List Food</li>
+
+<p align="center">
+  <img src="/result_screenshot/view_restaurant.jpg" alt=""  width="162" height="351" >
+  <img src="/result_screenshot/add_food.jpg" alt=""  width="162" height="351" >
+  <img src="/result_screenshot/list_food_restaurant.jpg" alt=""  width="162" height="351" >
+</p>
+
+<p align = "center">
+  <img src="/result_screenshot/list_food_restaurant_options.jpg" alt=""  width="162" height="351" >
+  <img src="/result_screenshot/Detail_order.jpg" alt=""  width="162" height="351" >
+  <img src="/result_screenshot/list_order_restaurant.jpg" alt=""  width="162" height="351" >Detail_order
+</p>
+
+</ul>
 
  
 
