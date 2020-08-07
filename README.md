@@ -1,7 +1,9 @@
 # Ordering Food Court
 
-## Version & Database
-[Firebase](https://console.firebase.google.com/)
+## Database 
+[Firebase Database](https://console.firebase.google.com/)
+
+## Version 
 <ul>
 <li>Android 4.0</li>
 <li>Java Version 1_8</li>
