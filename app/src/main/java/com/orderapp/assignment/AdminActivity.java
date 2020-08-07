@@ -74,8 +74,6 @@ public class AdminActivity extends AppCompatActivity {
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //delete remember user and password
-                //Paper.book().destroy();
                 dialogLogOut.cancel();
                 startActivity(new Intent(AdminActivity.this,WelcomeActivity.class));
             }

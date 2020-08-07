@@ -68,11 +68,6 @@ public class SearchFoodActivity extends AppCompatActivity {
     DatabaseReference mDatabase;
     ArrayList<String> suggestList = new ArrayList<>();
 
-//    @Override
-////    protected void attachBaseContext(Context newBase){
-////        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-////    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -9,6 +9,7 @@
     android:paddingTop="90dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
+    android:background="#8066B2FF"
     >
 
 
@@ -18,7 +19,7 @@
         android:text="Delete restaurant"
         android:layout_centerHorizontal="true"
         android:textSize="30sp"
-        android:textColor="@color/yellowApp"
+        android:textColor="@color/bg_color_url"
         android:fontFamily="@font/restaurant_font"
 
 
@@ -43,7 +44,7 @@
             android:inputType="textEmailAddress"
             android:singleLine="true"
             android:textColor="@color/colorBlack"
-            android:textColorHint="@color/colorGray"
+            android:textColorHint="@color/bg_color_url"
             android:textSize="25sp" />
 
 

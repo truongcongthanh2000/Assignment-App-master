@@ -137,29 +137,6 @@ public class ChangePassActivity extends AppCompatActivity {
             }
         });
     }
-    private void LogOut(){
-        final Dialog dialogLogOutChangePass = new Dialog(ChangePassActivity.this,R.style.Theme_Dialog);
-        dialogLogOutChangePass.setContentView(R.layout.dialog_logout_changepass);
-        dialogLogOutChangePass.show();
-        Button no =(Button) dialogLogOutChangePass.findViewById(R.id.btnNo_logout_changePass);
-        Button yes =(Button) dialogLogOutChangePass.findViewById((R.id.btnYes_logout_changePass));
-        no.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogLogOutChangePass.cancel();
-                startActivity(new Intent(ChangePassActivity.this, HomePageActivity.class));
-            }
-        });
-        yes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //delete remember user and password
-                //Paper.book().destroy();
-                dialogLogOutChangePass.cancel();
-                startActivity(new Intent(ChangePassActivity.this, WelcomeActivity.class));
-            }
-        });
-    }
     private void alertDisplayer(String title,String message){
         AlertDialog.Builder builder = new AlertDialog.Builder(ChangePassActivity.this)
                 .setTitle(title)

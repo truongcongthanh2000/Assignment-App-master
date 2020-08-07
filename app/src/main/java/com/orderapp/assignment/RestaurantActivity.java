@@ -26,8 +26,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.orderapp.assignment.Model.User;
-//import com.orderapp.assignment.Notifications.Token;
-
 
 public class RestaurantActivity extends AppCompatActivity {
     Button addFood, showListFood, showTableOfOrder, changePassword,update;
@@ -40,11 +38,6 @@ public class RestaurantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.layout_restaurant);
-
-        ///updateToken(FirebaseInstanceId.getInstance().getToken());
-
-//        // Paper init
-//        Paper.init(this);
 
 
         declare();
@@ -118,8 +111,6 @@ public class RestaurantActivity extends AppCompatActivity {
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //delete remember user and password
-                //Paper.book().destroy();
                 dialogLogOut.cancel();
                 startActivity(new Intent(RestaurantActivity.this, WelcomeActivity.class));
             }
@@ -142,10 +133,6 @@ public class RestaurantActivity extends AppCompatActivity {
                 User uuser = dataSnapshot.getValue(User.class);
                 name.setText(uuser.getName());
                 phone.setText(uuser.getPhone());
-                Log.d("AdRestaurantDataChange1", user.getDisplayName());
-                Log.d("AdRestaurantDataChange2", uuser.getName());
-                //restaurantName.setText(user.getDisplayName());
-                //restaurantName.setText(uuser.getName());
             }
 
             @Override
@@ -184,26 +171,17 @@ public class RestaurantActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Log.d("AddRestaurantActivity", "User Profile Updated");
-                                        Log.d("AddRestaurantActivity2", Name + " & " + user.getDisplayName());
                                         restaurantName.setText(user.getDisplayName());
                                         mDatabase.child("name").setValue(Name);
                                         mDatabase.child("phone").setValue(Phone);
                                     }
                                 }
                             });
-                    Log.d("AddRestaurantActivity5", Name + "&" + user.getDisplayName());
-                    ////restaurantName.setText(user.getDisplayName());
                 }
             }
         });
     }
 
-//    private void updateToken(String token){
-//        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Tokens");
-//        Token token1 = new Token(token,2);
-//        reference.child(user.getUid()).setValue(token1);
-//    }
     private void alertDisplayer(String title,String message){
         AlertDialog.Builder builder = new AlertDialog.Builder(RestaurantActivity.this)
                 .setTitle(title)

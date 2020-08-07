@@ -309,10 +309,7 @@ public class CartActivity extends AppCompatActivity {
                                     public void onClick(View view) {
                                         Snackbar snackbar1 = Snackbar.make(relativeLayout, "Add "+mRecentlyDeletedItem.getNameFood() + " again", Snackbar.LENGTH_LONG);
                                         mDatabase.child(mRecentlyDeletedItem.getNameFood()).setValue(mRecentlyDeletedItem);
-                                      //  arrCart.add(mRecentlyDeletedItemPosition,mRecentlyDeletedItem);
                                         cartAdapter.notifyDataSetChanged();
-                                       // totalPrice = totalPrice + mRecentlyDeletedItem.getPay();
-                                       // total.setText(String.valueOf(totalPrice)+ "đ");
                                         snackbar1.show();
                                     }
                                 });

@@ -30,10 +30,6 @@ import com.glide.slider.library.SliderLayout;
 import com.glide.slider.library.slidertypes.BaseSliderView;
 import com.glide.slider.library.slidertypes.TextSliderView;
 import com.glide.slider.library.tricks.ViewPagerEx;
-//import com.daimajia.slider.library.Animations.DescriptionAnimation;
-//import com.daimajia.slider.library.SliderLayout;
-//import com.daimajia.slider.library.SliderTypes.BaseSliderView;
-//import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -55,7 +51,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
-import io.paperdb.Paper;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class CustomerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
@@ -76,19 +71,9 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
     private static final int TIME_DELAY = 2500;
     private static long back_pressed = 0;
 
-//    @Override
-//    protected void attachBaseContext(Context newBase){
-//        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-//    }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
-//        }
 
         setContentView(R.layout.acitivity_customer);
 
@@ -132,9 +117,6 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
-        //Init paper
-        //Paper.init(this);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -318,9 +300,6 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
                 @Override
                 public void onClick(View v) {
                     dialogLogOut.cancel();
-                    //delete remember user and password
-                    //Paper.book().destroy();
-
                     startActivity(new Intent(CustomerActivity.this,WelcomeActivity.class));
                 }
             });
@@ -346,13 +325,10 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                    int i= 0;
                     for(DataSnapshot ds1: ds.getChildren()){
                         Food food = ds1.getValue(Food.class);
                         arrFood.add(new Food(food.getName(), food.getNameRestaurant(), food.getLinkPicture(), food.getIdRestaurant(), food.getPrice(), food.getStatus()));
                         adapter.notifyDataSetChanged();
-                        ++i;
-                        //if(i==3) break; // each restaurant has 3 food data
                     }
                 }
             }
@@ -392,19 +368,14 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
         banners.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //Integer i = 0;
                 for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
-                    //i = i+1;
                     Banner banner = postSnapShot.getValue(Banner.class);
                     image_list.put(banner.getId() + "_" + banner.getIdRes(), banner.getImage());
                 }
-                Log.d("Test banner: ", "Ok 1");
                 for (String key : image_list.keySet()) {
                     String[] keySplit = key.split("_");
                     String nameOfFood = keySplit[0];
                     String idOfRestaurent = keySplit[1];
-                    Log.d("Test banner: ", "Ok 2");
-                    Log.d("Test banner: ", "Ok 3: " + nameOfFood + idOfRestaurent);
                     //Creative Slider
                     final TextSliderView sliderView = new TextSliderView(getBaseContext());
                     sliderView
@@ -428,30 +399,6 @@ public class CustomerActivity extends AppCompatActivity implements NavigationVie
 
                     //Remove event after finish
                     banners.removeEventListener(this);
-//                    final TextSliderView textSliderView = new TextSliderView(getBaseContext());
-//                    textSliderView
-//                            .description(nameOfFood)
-//                            .image(image_list.get(key))
-//                            .setScaleType(BaseSliderView.ScaleType.Fit)
-//                            .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
-//                                @Override
-//                                public void onSliderClick(BaseSliderView slider) {
-//                                    Intent intent = new Intent(CustomerActivity.this, FoodDetailActivity.class);
-//                                    intent.putExtras(textSliderView.getBundle());
-//                                    startActivity(intent);
-//                                }
-//
-//                            });
-//
-//                    //add extra bundle
-//                    textSliderView.bundle(new Bundle());
-//                    textSliderView.getBundle().putString("FoodId", nameOfFood);
-//                    textSliderView.getBundle().putString("RestaurentID", idOfRestaurent);
-//
-//                    mSlider.addSlider(textSliderView);
-//
-//                    //Remove event after finish
-//                    banners.removeEventListener(this);
                 }
             }
 

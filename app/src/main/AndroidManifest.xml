@@ -43,7 +43,6 @@
         <activity android:name=".AdminActivity"/>
         <activity android:name=".AddRestaurantActivity"/>
         <activity android:name=".RemoveRestaurantActivity"/>
-        <activity android:name=".HomePageActivity"/>
         <activity android:name=".InfoPersonActivity"/>
         <activity android:name=".ChangePassActivity"/>
         <activity android:name=".ForgotPassActivity"/>

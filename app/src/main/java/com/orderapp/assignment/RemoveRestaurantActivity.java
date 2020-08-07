@@ -49,10 +49,8 @@ public class RemoveRestaurantActivity extends AppCompatActivity {
     }
 
     private void declare(){
-        //Log.d(TAG, "Test Declare");
         emailDel =   (EditText) findViewById(R.id.edtEmailDel_restaurant);
         delRes =   (Button) findViewById(R.id.btnDel_restaurant);
-        //Log.d(TAG, emailDel.getText().toString().trim());
     }
 
     private void deleteRestaurant() {
@@ -63,24 +61,18 @@ public class RemoveRestaurantActivity extends AppCompatActivity {
             alertDisplayer("Email cannot be empty", "Please try agian");
         }
         else {
-            Log.d("Test Email", Email);
             // lay data của realtime bd từ email
             //waiting.dismiss();
             mData = FirebaseDatabase.getInstance().getReference().child("users");
-            Log.d("Test DataChange", "First");
             ValueEventListener RemoveRestaurantListerner = new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     //waiting.dismiss();
-                    int time = 0;
-                    Log.d("Test DataChange", Integer.toString(time));
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
                         if (ds.getValue() != null) {
-                            //Log.d("Test DataChange", Integer.toString(time));
                             User user = ds.getValue(User.class);
                             if (user.getEmail().equals(Email)) {
                                 userID = ds.getKey();
-                                Log.d("Test ID", userID);
                                 database = FirebaseDatabase.getInstance().getReference().child("restaurants");
                                 database.child(userID).removeValue();
                                 database = FirebaseDatabase.getInstance().getReference().child("users");
@@ -102,7 +94,6 @@ public class RemoveRestaurantActivity extends AppCompatActivity {
                 }
             };
             mData.addValueEventListener(RemoveRestaurantListerner);
-            Log.d("Test DataChange", "End");
         }
     }
 

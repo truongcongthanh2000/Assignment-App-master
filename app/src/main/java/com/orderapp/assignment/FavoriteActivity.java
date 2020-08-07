@@ -73,11 +73,6 @@ public class FavoriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_favorite);
 
-        //set color status bar
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
-//        }
-
         home = findViewById(R.id.home_favorite);
         initRecyclerView();
 
@@ -155,7 +150,6 @@ public class FavoriteActivity extends AppCompatActivity {
                         final int position = viewHolder.getAdapterPosition();
                         final Favorite mRecentlyDeletedItem = arrFavorite.get(position);
 
-                        //databaseReference.child(mRecentlyDeletedItem.getFoodID()).child("check").setValue(0);
                         final int mRecentlyDeletedItemPosition = position;
                         //arrFavorite.remove(position);
                         databaseReference.child(mRecentlyDeletedItem.getFoodID()).setValue(null);
@@ -167,9 +161,7 @@ public class FavoriteActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(View view) {
                                         Snackbar snackbar1 = Snackbar.make(coordinatorLayout, "Add " + mRecentlyDeletedItem.getFoodID() + " again", Snackbar.LENGTH_LONG);
-                                        //databaseReference.child(mRecentlyDeletedItem.getFoodID()).child("check").setValue(1);
                                         databaseReference.child(mRecentlyDeletedItem.getFoodID()).setValue(mRecentlyDeletedItem);
-                                        ///arrFavorite.add(mRecentlyDeletedItemPosition,mRecentlyDeletedItem);
                                         favoriteAdapter.notifyDataSetChanged();
                                         snackbar1.show();
                                     }

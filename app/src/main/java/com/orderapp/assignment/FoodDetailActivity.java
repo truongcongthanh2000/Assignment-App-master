@@ -19,11 +19,6 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.facebook.CallbackManager;
-import com.facebook.share.model.SharePhoto;
-import com.facebook.share.model.SharePhotoContent;
-import com.facebook.share.widget.ShareDialog;
-
 import com.andremion.counterfab.CounterFab;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -91,10 +86,7 @@ public class FoodDetailActivity extends AppCompatActivity implements RatingDialo
         setContentView(R.layout.layout_food_detail);
 
 
-
-
         btnCart = (FloatingActionButton)findViewById(R.id.btnCart);
-        //btnShare = (FloatingActionButton) findViewById(R.id.btnShare);
         number = (ElegantNumberButton) findViewById(R.id.number_button);
         pic = (ImageView) findViewById(R.id.image_food);
         nameFood = (TextView) findViewById(R.id.food_name);

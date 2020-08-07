@@ -28,10 +28,6 @@ public class ForgotPassActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_forgot_pass);
 
-        //set color status bar
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
-//        }
         declare();
         firebaseAuth = FirebaseAuth.getInstance();
         btnGetPass.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +68,6 @@ public class ForgotPassActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
-                        //startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     }
                 });
         AlertDialog ok = builder.create();

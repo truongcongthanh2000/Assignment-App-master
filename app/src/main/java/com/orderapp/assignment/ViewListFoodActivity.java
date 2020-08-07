@@ -113,8 +113,7 @@ public class ViewListFoodActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-//        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-//        final int pos = info.position;
+
         final int pos = item.getGroupId();
         final String name = arrFood.get(pos).getName();
         switch (item.getItemId()){
