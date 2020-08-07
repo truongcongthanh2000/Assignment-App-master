@@ -50,11 +50,11 @@
 <li>Favorite food</li>
 <li>and more...</li>
 <p align="center">
-  <img src="/result_screenshot/viewCustomer_info.jpg" alt=""  width="130" height="280" >
-  <img src="/result_screenshot/searchFood.jpg" alt=""  width="130" height="280" >
-  <img src="/result_screenshot/foodDetail.jpg" alt=""  width="130" height="280" >
-  <img src="/result_screenshot/ratingFood.jpg" alt=""  width="130" height="280" >
-  <img src="/result_screenshot/list_order_customer.jpg" alt=""  width="130" height="280" >
+  <img src="/result_screenshot/viewCustomer_info.jpg" alt=""  width="119" height="257" >
+  <img src="/result_screenshot/searchFood.jpg" alt=""  width="119" height="257" >
+  <img src="/result_screenshot/foodDetail.jpg" alt=""  width="119" height="257" >
+  <img src="/result_screenshot/ratingFood.jpg" alt=""  width="119" height="257" >
+  <img src="/result_screenshot/list_order_customer.jpg" alt=""  width="119" height="257" >
 </p>
 </ul>
 
