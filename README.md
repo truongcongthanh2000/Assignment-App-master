@@ -1,11 +1,12 @@
 # Ordering Food Court
 
-## Version
+## Version & Database
+[Firebase](https://console.firebase.google.com/)
 <ul>
 <li>Android 4.0</li>
 <li>Java Version 1_8</li>
 <li>Compile Sdk Version 30</li>
-
+[Firebase](https://console.firebase.google.com/) </li>
 </ul>
 
 ## Member
@@ -14,7 +15,7 @@
 3. Trần Tấn Tiến - 1810582
 4. Trần Văn Cường - 1810852
 
-## Firebase Database
+## Firebase Authentication
 <ul>
 <li>Signup</li>
 <li>Login</li>
