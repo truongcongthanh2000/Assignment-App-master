@@ -6,7 +6,6 @@
 <li>Android 4.0</li>
 <li>Java Version 1_8</li>
 <li>Compile Sdk Version 30</li>
-[Firebase](https://console.firebase.google.com/) </li>
 </ul>
 
 ## Member
