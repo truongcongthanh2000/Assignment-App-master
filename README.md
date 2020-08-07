@@ -44,9 +44,6 @@
 <li>Comment</li>
 <li>Add favorite food</li>
 <li>List order</li>
-<li>Payment</li> 
-
-This app is using payment service from momo, momo test in particular. You can find in [Link Momo Test](https://developers.momo.vn/#/docs/testing_information)
 
 <p align="center">
   <img src="/result_screenshot/viewCustomer_info.jpg" alt=""  width="108" height="234" >
@@ -54,6 +51,17 @@ This app is using payment service from momo, momo test in particular. You can fi
   <img src="/result_screenshot/foodDetail.jpg" alt=""  width="108" height="234" >
   <img src="/result_screenshot/ratingFood.jpg" alt=""  width="108" height="234" >
   <img src="/result_screenshot/list_order_customer.jpg" alt=""  width="108" height="234" >
+</p>
+
+<li>Payment</li> 
+
+This app is using payment service from momo, momo test in particular. You can find in [Link Momo Test](https://developers.momo.vn/#/docs/testing_information)
+
+<p align="center">
+  <img src="/result_screenshot/cart.jpg" alt=""  width="130" height="280" >
+  <img src="/result_screenshot/momo_login.jpg" alt=""  width="130" height="280" >
+  <img src="/result_screenshot/momo_payment.jpg" alt=""  width="130" height="280" >
+  <img src="/result_screenshot/momo_payment_info.jpg" alt=""  width="130" height="280" >
 </p>
 </ul>
 
