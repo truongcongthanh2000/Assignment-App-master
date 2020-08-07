@@ -46,7 +46,7 @@
 <li>List order</li>
 <li>Payment</li> 
 
-this app is using payment service from momo, momo test in particular. You can find in [Link Momo Test](https://developers.momo.vn/#/docs/testing_information)
+This app is using payment service from momo, momo test in particular. You can find in [Link Momo Test](https://developers.momo.vn/#/docs/testing_information)
 
 <p align="center">
   <img src="/result_screenshot/viewCustomer_info.jpg" alt=""  width="108" height="234" >
