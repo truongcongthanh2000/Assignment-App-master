@@ -8,18 +8,31 @@
 
 ## Firebase Database
 <ul>
-<li>Create account</li>
+<li>Signup</li>
 <li>Login</li>
-<li>ForgotPassword</li>
+
 <p align="center">
   <img src="/result_screenshot/login_signup.jpg" alt=""  width="162" height="351" >
   <img src="/result_screenshot/register.jpg" alt=""  width="162" height="351" >
   <img src="/result_screenshot/login.jpg" alt=""  width="162" height="351" >
-  <img src="/result_screenshot/forgotPassword.jpg" alt=""  width="162" height="351" >
-  <img src="/result_screenshot/Verify_email_sign_up.jpg" alt=""  width="162" height="351" >
 </p>
 
 </ul>
+
+## General features of admin, customer and staff
+
+<ul>
+<li>Update info</li>
+<li>Change password</li>
+<li>Forgot password</li>
+  <img src="/result_screenshot/updateInfo_infoPersonCustomer.jpg" alt=""  width="130" height="280" >
+  <img src="/result_screenshot/update_info_restaurant.jpg" alt=""  width="130" height="280" >
+  <img src="/result_screenshot/forgotPassword.jpg" alt=""  width="130" height="280" >
+  <img src="/result_screenshot/change_password.jpg" alt=""  width="130" height="280" >
+
+</ul>
+ 
+
 
 
 
