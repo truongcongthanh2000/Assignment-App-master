@@ -45,6 +45,9 @@
 <li>Add favorite food</li>
 <li>List order</li>
 <li>Payment</li> 
+
+this app is using payment service from momo, momo test in particular. You can find in [Link Momo Test](https://developers.momo.vn/#/docs/testing_information)
+
 <p align="center">
   <img src="/result_screenshot/viewCustomer_info.jpg" alt=""  width="108" height="234" >
   <img src="/result_screenshot/searchFood.jpg" alt=""  width="108" height="234" >
@@ -53,8 +56,6 @@
   <img src="/result_screenshot/list_order_customer.jpg" alt=""  width="108" height="234" >
 </p>
 </ul>
-[my team in codeforces](https://codeforces.com/team/60278)
-In this app, we use Momo Test, you can find in [here](https://developers.momo.vn/#/docs/testing_information)
 
 ## Features of admin
 <ul>
