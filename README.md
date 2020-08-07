@@ -1,5 +1,13 @@
 # Ordering Food Court
 
+## Version
+<ul>
+<li>Android 4.0</li>
+<li>Java Version 1_8</li>
+<li>Compile Sdk Version 30</li>
+
+</ul>
+
 ## Member
 1. Trương Công Thành - 1810766
 2. Trần Thanh Bình - 1810689
@@ -95,7 +103,7 @@ This app is using payment service from momo, momo test in particular. You can fi
 <p align = "center">
   <img src="/result_screenshot/list_food_restaurant_options.jpg" alt=""  width="162" height="351" >
   <img src="/result_screenshot/Detail_order.jpg" alt=""  width="162" height="351" >
-  <img src="/result_screenshot/list_order_restaurant.jpg" alt=""  width="162" height="351" >Detail_order
+  <img src="/result_screenshot/list_order_restaurant.jpg" alt=""  width="162" height="351" >
 </p>
 
 </ul>
