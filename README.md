@@ -47,7 +47,6 @@
 </ul>
 
 ## Feature of customer
-<h3>Main Feature of customers</h3>
 <ul>
 <li>Search food</li>
 <li>Rating</li>
